@@ -601,7 +601,7 @@
 
     <request name="get_viewport">
       <arg name="id" type="new_id" interface="tizen_viewport" />
-      <arg name="subsurface" type="object" interface="wl_subsurface" />
+      <arg name="surface" type="object" interface="wl_surface" />
     </request>
 
   </interface>
@@ -631,12 +631,12 @@
 
   <interface name="tizen_viewport" version="1">
 
-      <description summary="the viewport for a subsurface">
+      <description summary="the viewport for a surface">
     This is the alternative and convenient solution of wl_viewport to present
-    a subsurface on screen.
+    a surface on screen.
 
     The below five functions can be replaced with this interface. The below
-    functions will be ignored after applying this interface to a subsurface.
+    functions will be ignored after applying this interface to a surface.
      - wl_surface.set_buffer_transform
      - wl_surface.set_buffer_scale
      - wl_subsurface.set_position
@@ -653,38 +653,49 @@
     tizen_viewport allows clients to set the relative geometry to a subsurface
     in a parent surface. Whenever a parent surface is resized, the geometry of
     a subsurface will be calculated, moved and resized automatically by a
-    compositor.
+    compositor. The tizen_viewport is specified in the coordinates of a
+    subsurface's parent.
 
-    The tizen_viewport is specified in the coordinates of a subsurface's parent.
+	If tizen_viewport is applied to a shell surface(toplevel), the all value related
+	with x, y pos of tizen_viewport and tizen_destination_mode interface will be ignored.
 
     The below 3 functions don't consider the transform of a parent's surface.
      - tizen_viewport.set_source
      - tizen_viewport.set_destination
      - tizen_viewport.set_destination_ratio
 
-    However, tizen_destination_mode.follow_parent_transform is called,
+    Furthermore, tizen_destination_mode.follow_parent_transform is called,
     tizen_viewport will consider the transform of a parent surface when applying
-    the destination mode to a subsurface.
+    the destination mode to a subsurface. If tizen_destination_mode.follow_parent_transform
+    is applied to a shell surface, it will be ignored.
 
     The destination will be cropped by a parent surface.
 
     The change will be applied when wl_surface.commit is called.
       </description>
 
+    <event name="destination_changed">
+      <arg name="transform" type="uint"/>
+      <arg name="x" type="int"/>
+      <arg name="y" type="int"/>
+      <arg name="width" type="uint"/>
+      <arg name="height" type="uint"/>
+    </event>
+
     <request name="destroy" type="destructor" />
 
     <request name="set_transform">
-      <description summary="set the transform of a subsurface">
+      <description summary="set the transform of a surface">
     The accepted values for the transform parameter are the values for wl_output.transform
     according to the output transform.
 
     The tizen_viewport.set_transform is applied only to itself. Basically it
     doesn't effect the transform of its subsurfaces. That is, if 90 transform is
-    setted and its subsurface has 0 transform, its subsurface won't be
+    setted and its subsurface still has 0 transform, its subsurface won't be
     rotated.
 
-    If need to rotate the subsurface depended on a parent surface,
-    tizen_viewport.follow_parent_transform will make it possible.
+    If needed to rotate the subsurface depended on a parent surface,
+    tizen_destination_mode.follow_parent_transform will make it possible.
 
       </description>
       <arg name="transform" type="uint"/>
@@ -702,10 +713,13 @@
     </request>
 
     <request name="set_destination">
-      <description summary="set the destination rectalge in a parent surface">
-    The destination rectangle won't be changed when a parent is resized. If it
+      <description summary="set the destination geometry of a surface">
+    The destination geometry won't be changed when a parent is resized. If it
     needs to be changed, tizen_viewport.set_destination should be called with
     new values.
+
+	If tizen_viewport is applied to a shell surface(toplevel), the x, y value of
+	tizen_viewport.set_destination will be ignored.
       </description>
       <arg name="x" type="int"/>
       <arg name="y" type="int"/>
@@ -718,6 +732,9 @@
     The destination rectangle of a subsurface will be automatically changed
     when a parent is resized. This allows the real number between 0.0 and 1.0.
     See wl_fixed_from_double and wl_fixed_to_double.
+
+	If tizen_viewport is applied to a shell surface(toplevel), the x, y value of
+	tizen_viewport.set_destination_ratio will be ignored.
       </description>
       <arg name="x" type="fixed"/>
       <arg name="y" type="fixed"/>
@@ -733,13 +750,13 @@
 
   <interface name="tizen_destination_mode" version="1">
 
-      <description summary="the destination mode for a subsurface">
+      <description summary="the destination mode for a surface">
     The destination rectangle will be automatically changed when a parent is
     resized. When tizen_destination_mode.set is called, the value of
     tizen_viewport.set_destination and tizen_viewport.set_destination_ratio
     will be ignored.
 
-    The destination of a subsurface is decided by the mode, ratio, scale, offset
+    The destination of a surface is decided by the mode, ratio, scale, offset
     and align values. The ratio, scale, offset and align will be applied
     sequentially.
 
@@ -765,6 +782,9 @@
       <description summary="follow the transform change of a parent surface">
     The real transform of a subsurface is (parent's transform + subsurface's transform).
     That is, the subsurface will be rotated automatically when the parent is rotated.
+
+    If tizen_destination_mode.follow_parent_transform is applied to a shell surface(toplevel),
+    it will be ignored.
       </description>
     </request>
 
