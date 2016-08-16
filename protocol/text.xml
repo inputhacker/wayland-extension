@@ -134,6 +134,7 @@
       <entry name="password_digits" value="18" summary="input a password with only digits"/>
       <entry name="filename" value="19" summary="default input for the name of a file (symbols such as '/' should be disabled)"/>
       <entry name="hex" value="20" summary="input for a hexadecimal"/>
+      <entry name="voice" value="21" summary="input for a voice"/>
     </enum>
     <request name="set_content_type">
       <description summary="set content purpose and hint">
