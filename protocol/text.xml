@@ -236,6 +236,11 @@
     <request name="reset_sync">
       <arg name="serial" type="uint"/>
     </request>
+    <request name="get_hide_permission">
+      <description summary="get permission to hide input panel">
+        Get permission to hide input panel.
+      </description>
+    </request>
     <event name="enter">
       <description summary="enter event">
         Notify the text-input object when it received focus. Typically in
@@ -440,6 +445,12 @@
     </event>
     <event name="reset_done">
       <arg name="serial" type="uint"/>
+    </event>
+    <event name="hide_permission">
+      <description summary="permission to hide input panel">
+        Notify whether input panel should be hidden or not.
+      </description>
+      <arg name="response" type="uint"/>
     </event>
   </interface>
 
