@@ -232,6 +232,9 @@
       <arg name="keyname" type="string"/>
       <arg name="state" type="uint"/>
       <arg name="modifiers" type="uint"/>
+      <arg name="dev_name" type="string"/>
+      <arg name="dev_class" type="uint"/>
+      <arg name="dev_subclass" type="uint"/>
     </request>
     <request name="reset_sync">
       <arg name="serial" type="uint"/>
