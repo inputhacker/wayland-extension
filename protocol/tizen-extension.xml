@@ -1183,4 +1183,27 @@
       <arg name="type" type="int"/>
     </event>
   </interface>
+
+  <interface name="tizen_clipboard" version="1">
+     <description summary="an interface for requests and event about clipboard">
+        This interface provides some requests and events about clipboard for other clients.
+     </description>
+     <request name="destroy" type="destructor" />
+     <request name="show">
+      <description summary="request for show clipboard">
+      </description>
+      <arg name="surface" type="object" interface="wl_surface" summary="surface object"/>
+     </request>
+     <request name="hide">
+      <description summary="request for hide clipboard">
+      </description>
+      <arg name="surface" type="object" interface="wl_surface" summary="surface object"/>
+     </request>
+     <event name="data_selected">
+      <description summary="announce data are selected by clipboard">
+      </description>
+      <arg name="surface" type="object" interface="wl_surface" summary="surface object"/>
+     </event>
+  </interface>
+
 </protocol>
