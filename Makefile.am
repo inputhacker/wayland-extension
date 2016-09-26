@@ -174,20 +174,3 @@ libtizen_extension_server_la_LIBADD  = @WAYLAND_SERVER_LIBS@
 libtizen_extension_client_la_SOURCES = protocol/tizen-extension-protocol.c
 libtizen_extension_client_la_CFLAGS  = @WAYLAND_CLIENT_CFLAGS@
 libtizen_extension_client_la_LIBADD  = @WAYLAND_CLIENT_LIBS@
-
-### tizen-remote-surface
-protocol_LTLIBRARIES += \
-	libtizen-remote-surface-server.la \
-	libtizen-remote-surface-client.la
-pkgconfig_DATA += \
-	src/tizen-remote-surface-server.pc \
-	src/tizen-remote-surface-client.pc
-protocolinclude_HEADERS += \
-	protocol/tizen-remote-surface-server-protocol.h \
-	protocol/tizen-remote-surface-client-protocol.h
-libtizen_remote_surface_server_la_SOURCES = protocol/tizen-remote-surface-protocol.c
-libtizen_remote_surface_server_la_CFLAGS  = @WAYLAND_SERVER_CFLAGS@
-libtizen_remote_surface_server_la_LIBADD  = @WAYLAND_SERVER_LIBS@
-libtizen_remote_surface_client_la_SOURCES = protocol/tizen-remote-surface-protocol.c
-libtizen_remote_surface_client_la_CFLAGS  = @WAYLAND_CLIENT_CFLAGS@
-libtizen_remote_surface_client_la_LIBADD  = @WAYLAND_CLIENT_LIBS@
