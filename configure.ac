@@ -61,5 +61,7 @@ AC_CONFIG_FILES([
 	src/wayland-extension-version.h
 	src/template-server.pc
 	src/template-client.pc
+	src/tizen-remote-surface-server.pc
+	src/tizen-remote-surface-client.pc
 ])
 AC_OUTPUT
