@@ -8,4 +8,4 @@ Description: Remote Surface Protocol for TIZEN
 Version: 1.0.0
 Requires: wayland-server wayland-tbm-server
 Libs: -L${libdir} -ltizen-remote-surface-server
-Cflags: -I${includedir}
+Cflags: -I${includedir}/wayland-extension
