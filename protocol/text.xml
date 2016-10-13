@@ -48,6 +48,7 @@
       and keysym. The text input can then ignore events from the input method
       which are based on an outdated state (for example after a reset).
     </description>
+    <request name="destroy" type="destructor"/>
     <request name="activate">
       <description summary="request activation">
         Requests the text-input object to be activated (typically when the
