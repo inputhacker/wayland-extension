@@ -3,7 +3,7 @@ exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include
 
-Name: tizen-remote-surface
+Name: tizen-remote-surface-client
 Description: Remote Surface Protocol for TIZEN
 Version: 1.0.0
 Requires: wayland-client wayland-tbm-client

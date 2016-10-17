@@ -193,5 +193,37 @@
      <event name="missing">
         <description summary="notify of leave of provider" />
      </event>
+
+     <request name="set_owner">
+        <description summary="set owner surface of remote sruface">
+           Set owner wl_surface object of this remote surface.
+        </description>
+        <arg name="owner" type="object" interface="wl_surface" summary="wayland surface to be set to an owner" />
+     </request>
+
+     <request name="create_region">
+        <description summary="create new region">
+           Ask tizen_remote_surface for creation of new remote surface region object.
+           tizen_remote_surface_region object can be used for representing
+           region of tizen_remote_surface.
+        </description>
+        <arg name="id" type="new_id" interface="tizen_remote_surface_region" />
+     </request>
+  </interface>
+
+  <interface name="tizen_remote_surface_region" version="1">
+     <description summary="a region object">
+        A region object having geometry information and etc.
+     </description>
+     <request name="destroy" type="destructor" />
+     <request name="set_geometry">
+        <description summary="set geometry of this region">
+           Set geometry information of this region object.
+        </description>
+        <arg name="x" type="int" summary="x coordinate" />
+        <arg name="y" type="int" summary="y coordinate" />
+        <arg name="w" type="int" summary="width" />
+        <arg name="h" type="int" summary="height" />
+     </request>
   </interface>
 </protocol>
