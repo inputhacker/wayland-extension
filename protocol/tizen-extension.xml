@@ -488,6 +488,10 @@
     <event name="set_input_config_notify">
       <arg name="status" type="uint"/>
     </event>
+
+    <event name="key_cancel">
+      <arg name="key" type="uint"/>
+    </event>
   </interface>
 
   <interface name="tizen_screenshooter" version="1">
