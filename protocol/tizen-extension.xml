@@ -750,6 +750,19 @@
       <arg name="id" type="new_id" interface="tizen_destination_mode" />
     </request>
 
+    <request name="query_parent_size" since="1">
+      <description summary="set the ratio destination rectalge in a parent surface">
+    A client can asks the display server to send the size of tizen_viewport object's
+    parent surface. Once a client requests it, the "parent_size" event will be sent
+    whenever the parent surface's size is changed.
+      </description>
+    </request>
+
+    <event name="parent_size">
+      <arg name="width" type="uint" />
+      <arg name="height" type="uint" />
+    </event>
+
   </interface>
 
   <interface name="tizen_destination_mode" version="1">
