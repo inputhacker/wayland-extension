@@ -245,6 +245,16 @@
         Get permission to hide input panel.
       </description>
     </request>
+    <enum name="capital_mode">
+      <description summary="capital mode">
+        This allows to specify capital mode on the input panel.
+      </description>
+      <entry name="uppercase" value="0" summary="uppercase"/>
+      <entry name="lowercase" value="1" summary="lowercase"/>
+    </enum>
+    <request name="set_capital_mode">
+      <arg name="mode" type="uint"/>
+    </request>
     <event name="enter">
       <description summary="enter event">
         Notify the text-input object when it received focus. Typically in

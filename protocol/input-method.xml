@@ -270,6 +270,9 @@
     <event name="reset_sync">
       <arg name="serial" type="uint"/>
     </event>
+    <event name="capital_mode">
+      <arg name="mode" type="uint"/>
+    </event>
   </interface>
 
   <interface name="wl_input_method" version="1">
