@@ -322,6 +322,7 @@
 
     <enum name="type">
       <entry name="swipe" value="1"/>
+      <entry name="tap" value="2"/>
     </enum>
 
     <enum name="mode">
@@ -339,27 +340,49 @@
     </enum>
 
     <request name="grab_swipe">
-      <arg name="num_of_fingers" type="uint"/>
+      <arg name="fingers" type="uint"/>
       <arg name="direction" type="uint"/>
     </request>
 
     <request name="ungrab_swipe">
-      <arg name="num_of_fingers" type="uint"/>
+      <arg name="fingers" type="uint"/>
       <arg name="direction" type="uint"/>
     </request>
 
     <event name="grab_swipe_notify">
-      <arg name="num_of_fingers" type="uint"/>
+      <arg name="fingers" type="uint"/>
       <arg name="direction" type="uint" enum="direction"/>
       <arg name="error" type="uint"/>
     </event>
 
     <event name="swipe">
       <arg name="mode" type="uint" enum="mode"/>
-      <arg name="num_of_fingers" type="uint"/>
+      <arg name="fingers" type="uint"/>
       <arg name="sx" type="int" summary="x coordinate of touch down point"/>
       <arg name="sy" type="int" summary="y coordinate of touch down point"/>
       <arg name="direction" type="uint" enum="direction"/>
+    </event>
+
+    <request name="grab_tap">
+      <arg name="fingers" type="uint"/>
+      <arg name="repeat" type="uint"/>
+    </request>
+
+    <request name="ungrab_tap">
+      <arg name="fingers" type="uint"/>
+      <arg name="repeat" type="uint"/>
+    </request>
+
+    <event name="grab_tap_notify">
+      <arg name="fingers" type="uint"/>
+      <arg name="repeat" type="uint"/>
+      <arg name="error" type="uint"/>
+    </event>
+
+    <event name="tap">
+      <arg name="mode" type="uint" enum="mode"/>
+      <arg name="fingers" type="uint"/>
+      <arg name="repeat" type="uint"/>
     </event>
   </interface>
 
