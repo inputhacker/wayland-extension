@@ -34,6 +34,11 @@
       <arg name="below_res_id" type="uint" />
     </request>
 
+    <request name="activate_above_by_res_id">
+      <arg name="res_id" type="uint" />
+      <arg name="above_res_id" type="uint" />
+    </request>
+
     <request name="raise">
       <arg name="surface" type="object" interface="wl_surface" summary="surface object"/>
     </request>
