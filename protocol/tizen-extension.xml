@@ -521,6 +521,13 @@
       <arg name="format" type="uint"/>
     </event>
 
+    <event name="screenshooter_notify">
+      <description summary="send notification of screenshooter">
+        Clients can get notification of screenshooter.
+      </description>
+      <arg name="noti" type="uint"/>
+    </event>
+
   </interface>
 
   <interface name="tizen_screenmirror" version="1">
