@@ -775,6 +775,18 @@
       <arg name="height" type="uint" />
     </event>
 
+    <request name="follow_parent_transform">
+      <description summary="follow the transform change of a parent surface">
+    The real transform of a subsurface is (parent's transform + subsurface's transform).
+    The subsurface will be rotated automatically when the parent is rotated.
+
+    If tizen_viewport.follow_parent_transform is applied to a shell surface(toplevel),
+    it will be ignored.
+      </description>
+    </request>
+
+    <request name="unfollow_parent_transform" />
+
   </interface>
 
   <interface name="tizen_destination_mode" version="1">
