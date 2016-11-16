@@ -237,9 +237,6 @@
       <arg name="dev_class" type="uint"/>
       <arg name="dev_subclass" type="uint"/>
     </request>
-    <request name="reset_sync">
-      <arg name="serial" type="uint"/>
-    </request>
     <request name="get_hide_permission">
       <description summary="get permission to hide input panel">
         Get permission to hide input panel.
@@ -456,9 +453,6 @@
     <event name="filter_key_event_done">
       <arg name="serial" type="uint"/>
       <arg name="state" type="uint"/>
-    </event>
-    <event name="reset_done">
-      <arg name="serial" type="uint"/>
     </event>
     <event name="hide_permission">
       <description summary="permission to hide input panel">
