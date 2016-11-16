@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <protocol name="tizen_remote_surface">
-  <interface name="tizen_remote_surface_manager" version="2">
+  <interface name="tizen_remote_surface_manager" version="3">
      <description summary="manager of tizen_remote_surface">
         A manager of tizen_remote_surface. This object is in charge of
         creating tizen_remote_surface_provider and tizen_remote_surface and
@@ -77,7 +77,7 @@
      </enum>
   </interface>
 
-  <interface name="tizen_remote_surface" version="2">
+  <interface name="tizen_remote_surface" version="3">
      <description summary="a consumer of buffers from a provider">
         A consumer client of provider client's buffer.
         The consumer can receive notice of buffer updating of
@@ -102,6 +102,7 @@
         <description summary="deliver updated buffer of provider">
            When a provider client of a remote surface sent wl_surface.commit,
            server deliver a remote buffer is created based on provider's buffer.
+           This event is deprecated. Please use changed_buffer event instead of it.
         </description>
         <arg name="buffer" type="object" interface="wl_buffer" summary="wayland buffer based on provider updated buffer"/>
         <arg name="time" type="uint" summary="timestampa" />
@@ -216,6 +217,30 @@
         <description summary="request release of wayland buffer" />
         <arg name="buffer" type="object" interface="wl_buffer" summary="wayland buffer to be released"/>
      </request>
+
+     <!-- Version 3 addtions -->
+
+     <enum name="buffer_type" since="3">
+        <description summary="type of remote surface buffer" />
+        <entry name="tbm" value="0" summary="tbm type"/>
+        <entry name="image_file" value="1" summary="image file type"/>
+     </enum>
+
+     <event name="changed_buffer" since="3">
+        <description summary="deliver a changed buffer of the provider client">
+           When a provider client of a remote surface sent wl_surface.commit,
+           the compositor delivers a remote buffer is created based on provider's buffer.
+           And the buffer of provider client can be changed to the static image file by
+           the compositor whenever its window is iconify. Then consumer has to use
+           fd instead of buffer.
+        </description>
+        <arg name="type" type="uint" enum="buffer_type" summary="buffer type" />
+        <arg name="tbm" type="object" interface="wl_buffer" allow-null="true" summary="wayland buffer based on provider updated buffer"/>
+        <arg name="img_file_fd" type="fd" summary="static image file descriptor" />
+        <arg name="img_file_size" type="uint" summary="size of static image file" />
+        <arg name="time" type="uint" summary="timestamp" />
+        <arg name="options" type="array" allow-null="true" summary="array of options"/>
+     </event>
 
   </interface>
 
