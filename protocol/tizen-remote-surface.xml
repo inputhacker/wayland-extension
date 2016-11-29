@@ -33,7 +33,7 @@
            wayland surface can be automatically drawed by buffer updating of
            remote surface provider without notice to an owner of remote surface.
         </description>
-        <arg name="surface" type="object" interface="wl_surface" summary="wayland surface to be set remote surface"/>
+        <arg name="surface" type="object" interface="wl_surface" allow-null="true" summary="wayland surface to be set remote surface"/>
         <arg name="remote_surface" type="object" interface="tizen_remote_surface" summary="remote surface for target wayland surface"/>
      </request>
   </interface>
@@ -198,7 +198,7 @@
         <description summary="set owner surface of remote sruface">
            Set owner wl_surface object of this remote surface.
         </description>
-        <arg name="owner" type="object" interface="wl_surface" summary="wayland surface to be set to an owner" />
+        <arg name="owner" type="object" interface="wl_surface" allow-null="true" summary="wayland surface to be set to an owner" />
      </request>
 
      <request name="create_region">
