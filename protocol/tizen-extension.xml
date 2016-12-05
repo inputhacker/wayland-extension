@@ -321,7 +321,7 @@
     </enum>
 
     <enum name="type">
-      <entry name="swipe" value="1"/>
+      <entry name="edge_swipe" value="1"/>
     </enum>
 
     <enum name="mode">
@@ -331,35 +331,35 @@
       <entry name="done" value="4"/>
     </enum>
 
-    <enum name="direction">
-      <entry name="down" value="1"/>
-      <entry name="left" value="2"/>
-      <entry name="up" value="4"/>
-      <entry name="right" value="8"/>
+    <enum name="edge">
+      <entry name="top" value="1"/>
+      <entry name="right" value="2"/>
+      <entry name="bottom" value="4"/>
+      <entry name="left" value="8"/>
     </enum>
 
-    <request name="grab_swipe">
-      <arg name="num_of_fingers" type="uint"/>
-      <arg name="direction" type="uint"/>
+    <request name="grab_edge_swipe">
+      <arg name="fingers" type="uint"/>
+      <arg name="edge" type="uint" enum="edge"/>
     </request>
 
-    <request name="ungrab_swipe">
-      <arg name="num_of_fingers" type="uint"/>
-      <arg name="direction" type="uint"/>
+    <request name="ungrab_edge_swipe">
+      <arg name="fingers" type="uint"/>
+      <arg name="edge" type="uint" enum="edge"/>
     </request>
 
-    <event name="grab_swipe_notify">
-      <arg name="num_of_fingers" type="uint"/>
-      <arg name="direction" type="uint" enum="direction"/>
+    <event name="grab_edge_swipe_notify">
+      <arg name="fingers" type="uint"/>
+      <arg name="edge" type="uint" enum="edge"/>
       <arg name="error" type="uint"/>
     </event>
 
-    <event name="swipe">
+    <event name="edge_swipe">
       <arg name="mode" type="uint" enum="mode"/>
-      <arg name="num_of_fingers" type="uint"/>
+      <arg name="fingers" type="uint"/>
       <arg name="sx" type="int" summary="x coordinate of touch down point"/>
       <arg name="sy" type="int" summary="y coordinate of touch down point"/>
-      <arg name="direction" type="uint" enum="direction"/>
+      <arg name="edge" type="uint" enum="edge"/>
     </event>
   </interface>
 
