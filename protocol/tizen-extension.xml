@@ -522,6 +522,13 @@
       <arg name="output" type="object" interface="wl_output" summary="output object for screenmirror"/>
     </request>
 
+    <request name="set_oneshot_auto_rotation">
+      <description summary="set screen shot auto rotation value">
+        Client can set auto rotation value for one shot.
+      </description>
+      <arg name="set" type="uint"/>
+    </request>
+
     <event name="format">
       <description summary="supported format for screenshooter">
         The tbm format codes match the #defines in tbm_surface.h. The formats actually
