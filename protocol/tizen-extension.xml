@@ -381,6 +381,7 @@
 
     <enum name="type">
       <entry name="edge_swipe" value="1"/>
+      <entry name="tap" value="2"/>
     </enum>
 
     <enum name="mode">
@@ -419,6 +420,28 @@
       <arg name="sx" type="int" summary="x coordinate of touch down point"/>
       <arg name="sy" type="int" summary="y coordinate of touch down point"/>
       <arg name="edge" type="uint" enum="edge"/>
+    </event>
+
+    <request name="grab_tap">
+      <arg name="fingers" type="uint"/>
+      <arg name="repeats" type="uint"/>
+    </request>
+
+    <request name="ungrab_tap">
+      <arg name="fingers" type="uint"/>
+      <arg name="repeats" type="uint"/>
+    </request>
+
+    <event name="tap_notify">
+      <arg name="fingers" type="uint"/>
+      <arg name="repeats" type="uint"/>
+      <arg name="error" type="uint"/>
+    </event>
+
+    <event name="tap">
+      <arg name="mode" type="uint" enum="mode"/>
+      <arg name="fingers" type="uint"/>
+      <arg name="repeats" type="uint"/>
     </event>
   </interface>
 
