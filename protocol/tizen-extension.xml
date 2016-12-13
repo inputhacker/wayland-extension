@@ -70,6 +70,9 @@
       <entry name="custom" value="7"/>
       <entry name="notification" value="8"/>
       <entry name="utility" value="9"/>
+      <entry name="dialog" value="10"/>
+      <entry name="dock" value="11"/>
+      <entry name="splash" value="12"/>
     </enum>
 
     <request name="set_type">
