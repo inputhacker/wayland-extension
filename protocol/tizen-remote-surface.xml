@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <protocol name="tizen_remote_surface">
-  <interface name="tizen_remote_surface_manager" version="1">
+  <interface name="tizen_remote_surface_manager" version="2">
      <description summary="manager of tizen_remote_surface">
         A manager of tizen_remote_surface. This object is in charge of
         creating tizen_remote_surface_provider and tizen_remote_surface and
@@ -77,7 +77,7 @@
      </enum>
   </interface>
 
-  <interface name="tizen_remote_surface" version="1">
+  <interface name="tizen_remote_surface" version="2">
      <description summary="a consumer of buffers from a provider">
         A consumer client of provider client's buffer.
         The consumer can receive notice of buffer updating of
@@ -209,6 +209,14 @@
         </description>
         <arg name="id" type="new_id" interface="tizen_remote_surface_region" />
      </request>
+
+     <!-- Version 2 additions -->
+
+     <request name="release" since="2">
+        <description summary="request release of wayland buffer" />
+        <arg name="buffer" type="object" interface="wl_buffer" summary="wayland buffer to be released"/>
+     </request>
+
   </interface>
 
   <interface name="tizen_remote_surface_region" version="1">
