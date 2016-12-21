@@ -214,7 +214,11 @@
      <!-- Version 2 additions -->
 
      <request name="release" since="2">
-        <description summary="request release of wayland buffer" />
+        <description summary="request release of wayland buffer">
+           Notify of end of using the wayland buffer.
+           tizen_remote_surface client SHOULD request this after all work using
+           wayland buffer is done so that provider of the wl_buffer can re-use the buffer.
+        </description>
         <arg name="buffer" type="object" interface="wl_buffer" summary="wayland buffer to be released"/>
      </request>
 
