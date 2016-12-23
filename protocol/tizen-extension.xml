@@ -14,7 +14,7 @@
     </event>
   </interface>
 
-  <interface name="tizen_policy" version="1">
+  <interface name="tizen_policy" version="2">
     <request name="get_visibility">
       <arg name="id" type="new_id" interface="tizen_visibility" summary="new visibility object"/>
       <arg name="surface" type="object" interface="wl_surface" summary="surface object"/>
@@ -283,6 +283,12 @@
     <request name="activate_above_by_res_id">
       <arg name="res_id" type="uint" />
       <arg name="above_res_id" type="uint" />
+    </request>
+
+    <!-- for subsurface watcher -->
+    <request name="get_subsurface_watcher" since="2">
+      <arg name="id" type="new_id" interface="tizen_subsurface_watcher" />
+      <arg name="surface" type="object" interface="wl_surface" />
     </request>
   </interface>
 
@@ -645,6 +651,20 @@
       <arg name="name" type="string"/>
       <arg name="value" type="int"/>
     </request>
+
+  </interface>
+
+  <interface name="tizen_subsurface_watcher" version="1">
+
+    <enum name="msg">
+      <entry name="success" value="0"/>
+      <entry name="parent_id_invalid" value="1"/>
+      <entry name="parent_id_destroyed" value="2"/>
+    </enum>
+
+    <event name="message">
+      <arg name="value" type="uint"/>
+    </event>
 
   </interface>
 
