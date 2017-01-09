@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <protocol name="tizen_remote_surface">
-  <interface name="tizen_remote_surface_manager" version="3">
+  <interface name="tizen_remote_surface_manager" version="4">
      <description summary="manager of tizen_remote_surface">
         A manager of tizen_remote_surface. This object is in charge of
         creating tizen_remote_surface_provider and tizen_remote_surface and
@@ -38,7 +38,7 @@
      </request>
   </interface>
 
-  <interface name="tizen_remote_surface_provider" version="1">
+  <interface name="tizen_remote_surface_provider" version="4">
      <description summary="a provider of remote buffer source">
         A provider client. Surfaces of providers are offscreen.
         An attached buffer of the provider is used for creating remote buffer
@@ -75,9 +75,20 @@
         <entry name="visible" value="0" />
         <entry name="invisible" value="1" />
      </enum>
+
+     <!-- version 4 additions -->
+
+     <request name="set_input_event_filter" since="4">
+        <description summary="set event filter to be allowed">
+           Some providers can accept restricted events only. To notify of what
+           event is allowed or not, provider can set event filter using this
+           request.
+        </description>
+        <arg name="event_filter" type="uint" summary="event filter value. To calculate your event filter value, refer enum input_event_filter of tizen_remote_surface interface"/>
+     </request>>
   </interface>
 
-  <interface name="tizen_remote_surface" version="3">
+  <interface name="tizen_remote_surface" version="4">
      <description summary="a consumer of buffers from a provider">
         A consumer client of provider client's buffer.
         The consumer can receive notice of buffer updating of
@@ -222,7 +233,7 @@
         <arg name="buffer" type="object" interface="wl_buffer" summary="wayland buffer to be released"/>
      </request>
 
-     <!-- Version 3 addtions -->
+     <!-- Version 3 additions -->
 
      <enum name="buffer_type" since="3">
         <description summary="type of remote surface buffer" />
@@ -245,6 +256,50 @@
         <arg name="time" type="uint" summary="timestamp" />
         <arg name="options" type="array" allow-null="true" summary="array of options"/>
      </event>
+
+     <!-- Version 4 additions -->
+
+     <event name="input_event_filter" since="4">
+        <description summary="delivered a changed event filter of provider client">
+           When a provider client of this remote surface sent
+           remote_surface_provider@set_input_event_filter, a compositor delivers
+           the event filter values to this remote surface client.
+        </description>
+        <arg name="event_filter" type="uint" summary="event filter value"/>
+     </event>
+
+     <enum name="input_event_filter">
+        <description summary="vaules for event filter."/>
+        <entry name="mouse_none" value="0x00000001"/>
+        <entry name="mouse_up_down" value="0x00000002"/>
+        <entry name="mouse_move_x" value="0x00000003"/>
+        <entry name="mouse_move_y" value="0x00000004"/>
+        <entry name="mouse_move_x_y" value="0x00000005"/>
+        <entry name="mouse_up_down_move_x" value="0x00000006"/>
+        <entry name="mouse_up_down_move_y" value="0x00000007"/>
+        <entry name="mouse_up_down_move_x_y" value="0x00000008"/>
+        <entry name="mouse_all" value="0x0000000e" />
+        <entry name="mouse_flag" value="0x0000000f"/>
+        <entry name="mouse_wheel_none" value="0x00000010"/>
+        <entry name="mouse_wheel_all" value="0x000000e0"/>
+        <entry name="mouse_wheel_flag" value="0x000000f0"/>
+        <entry name="touch_none" value="0x00000100"/>
+        <entry name="touch_up_down" value="0x00000200"/>
+        <entry name="touch_move_x" value="0x00000300"/>
+        <entry name="touch_move_y" value="0x00000400"/>
+        <entry name="touch_move_x_y" value="0x00000500"/>
+        <entry name="touch_up_down_move_x" value="0x00000600"/>
+        <entry name="touch_up_down_move_y" value="0x00000700"/>
+        <entry name="touch_up_down_move_x_y" value="0x00000800"/>
+        <entry name="touch_all" value="0x00000e00"/>
+        <entry name="touch_flag" value="0x00000f00"/>
+        <entry name="touch_cancel_none" value="0x00001000"/>
+        <entry name="touch_cancel_all" value="0x0000e000"/>
+        <entry name="touch_cancel_flag" value="0x0000f000"/>
+        <entry name="key_none" value="0x00010000"/>
+        <entry name="key_all" value="0x000e0000"/>
+        <entry name="key_flag" value="0x000f0000"/>
+     </enum>
 
   </interface>
 
