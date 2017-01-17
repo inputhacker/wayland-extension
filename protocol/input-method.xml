@@ -283,6 +283,7 @@
       </description>
       <arg name="id" type="new_id" interface="wl_input_method_context"/>
       <arg name="text_input_id" type="uint"/>
+      <arg name="focus_in_event" type="uint"/>
     </event>
     <event name="deactivate">
       <description summary="deactivate event">
@@ -291,6 +292,7 @@
         handled.
       </description>
       <arg name="context" type="object" interface="wl_input_method_context"/>
+      <arg name="focus_out_event" type="uint"/>
     </event>
     <event name="show_input_panel">
       <description summary="show input panel event">
