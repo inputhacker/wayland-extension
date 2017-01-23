@@ -14,7 +14,7 @@
     </event>
   </interface>
 
-  <interface name="tizen_policy" version="2">
+  <interface name="tizen_policy" version="3">
     <request name="get_visibility">
       <arg name="id" type="new_id" interface="tizen_visibility" summary="new visibility object"/>
       <arg name="surface" type="object" interface="wl_surface" summary="surface object"/>
@@ -289,6 +289,10 @@
     <request name="get_subsurface_watcher" since="2">
       <arg name="id" type="new_id" interface="tizen_subsurface_watcher" />
       <arg name="surface" type="object" interface="wl_surface" />
+    </request>
+    <request name="set_parent" since="3">
+      <arg name="child" type="object" interface="wl_surface" />
+      <arg name="parent" type="object" interface="wl_surface" />
     </request>
   </interface>
 
