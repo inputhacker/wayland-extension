@@ -14,7 +14,7 @@
     </event>
   </interface>
 
-  <interface name="tizen_policy" version="3">
+  <interface name="tizen_policy" version="4">
     <request name="get_visibility">
       <arg name="id" type="new_id" interface="tizen_visibility" summary="new visibility object"/>
       <arg name="surface" type="object" interface="wl_surface" summary="surface object"/>
@@ -105,6 +105,11 @@
     </enum>
 
     <event name="conformant_area">
+       <description summary="Notify of conformant area">
+          Notify of conformant area to client. Sending this event does NOT guarantee
+          perfect compositing of conformant owner client surface and
+          conformant part client surface.
+      </description>
       <arg name="surface" type="object" interface="wl_surface" summary="surface object"/>
       <arg name="conformant_part" type="uint"/>
       <arg name="state" type="uint"/>
@@ -285,15 +290,47 @@
       <arg name="above_res_id" type="uint" />
     </request>
 
+    <!-- version 2 additions -->
     <!-- for subsurface watcher -->
     <request name="get_subsurface_watcher" since="2">
       <arg name="id" type="new_id" interface="tizen_subsurface_watcher" />
       <arg name="surface" type="object" interface="wl_surface" />
     </request>
+
+    <!-- version 3 additions -->
     <request name="set_parent" since="3">
       <arg name="child" type="object" interface="wl_surface" />
       <arg name="parent" type="object" interface="wl_surface" />
     </request>
+
+    <!-- version 4 additions -->
+    <!-- for conformant -->
+    <event name="conformant_region" since="4">
+      <description summary="notify of geometry values of conformant region(area)">
+         The server can notify of conformant region(area) using this event.
+         If client is received this event, client should ack for it using
+         tizen_policy@ack_conformant_region request.
+      </description>
+      <arg name="surface" type="object" interface="wl_surface" summary="surface object"/>
+      <arg name="conformant_part" type="uint"/>
+      <arg name="state" type="uint"/>
+      <arg name="x" type="int"/>
+      <arg name="y" type="int"/>
+      <arg name="w" type="int"/>
+      <arg name="h" type="int"/>
+      <arg name="serial" type="uint"/>
+    </event>
+
+    <request name="ack_conformant_region" since="4">
+      <description summary="ack for tizen_policy@conformant_region">
+         A client can refresh its surface for applying new conformant region which
+         is from tizen_policy@conformant_region event. The client has to ack
+         after complete of its updates by this request.
+      </description>
+      <arg name="surface" type="object" interface="wl_surface" summary="surface object"/>
+      <arg name="serial" type="uint"/>
+    </request>
+
   </interface>
 
   <interface name="tizen_visibility" version="1">
