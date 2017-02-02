@@ -1057,11 +1057,13 @@
     <request name="init_generator">
       <description summary="initialize input generator system">
       </description>
+      <arg name="clas" type="uint" enum="clas"/>
     </request>
 
     <request name="deinit_generator">
       <description summary="deinitialize input generator system">
       </description>
+      <arg name="clas" type="uint" enum="clas"/>
     </request>
 
     <request name="generate_key">
