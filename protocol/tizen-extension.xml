@@ -700,6 +700,20 @@
       <arg name="value" type="int"/>
     </request>
 
+    <request name="follow_topmost_visibility">
+      <description summary="follow mute control change of a topmost surface">
+        If tizen_video_object.follow_topmost_visibility is applied to a video_object,
+        It will be video mute control based on topmost visibility.
+      </description>
+    </request>
+
+    <request name="unfollow_topmost_visibility">
+      <description summary="unfollow mute control change of a topmost surface">
+        If tizen_video_object.unfollow_topmost_visibility is applied to a video_object,
+        It will not be video mute control based on topmost visibility.
+      </description>
+    </request>
+
   </interface>
 
   <interface name="tizen_subsurface_watcher" version="1">
