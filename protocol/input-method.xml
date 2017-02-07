@@ -211,6 +211,13 @@
       <arg name="serial" type="uint"/>
       <arg name="state" type="uint"/>
     </request>
+    <request name="update_ise_geometry">
+      <arg name="serial" type="uint"/>
+      <arg name="x" type="uint"/>
+      <arg name="y" type="uint"/>
+      <arg name="width" type="uint"/>
+      <arg name="height" type="uint"/>
+    </request>
     <event name="reset">
     </event>
     <event name="content_type">
