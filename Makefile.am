@@ -191,3 +191,20 @@ libtizen_remote_surface_server_la_LIBADD  = @WAYLAND_SERVER_LIBS@
 libtizen_remote_surface_client_la_SOURCES = protocol/tizen-remote-surface-protocol.c
 libtizen_remote_surface_client_la_CFLAGS  = @WAYLAND_CLIENT_CFLAGS@
 libtizen_remote_surface_client_la_LIBADD  = @WAYLAND_CLIENT_LIBS@
+
+### tizen-launch
+protocol_LTLIBRARIES += \
+        libtizen-launch-server.la \
+        libtizen-launch-client.la
+pkgconfig_DATA += \
+        src/tizen-launch-server.pc \
+        src/tizen-launch-client.pc
+protocolinclude_HEADERS += \
+        protocol/tizen-launch-server-protocol.h \
+        protocol/tizen-launch-client-protocol.h
+libtizen_launch_server_la_SOURCES = protocol/tizen-launch-protocol.c
+libtizen_launch_server_la_CFLAGS  = @WAYLAND_SERVER_CFLAGS@
+libtizen_launch_server_la_LIBADD  = @WAYLAND_SERVER_LIBS@
+libtizen_launch_client_la_SOURCES = protocol/tizen-launch-protocol.c
+libtizen_launch_client_la_CFLAGS  = @WAYLAND_CLIENT_CFLAGS@
+libtizen_launch_client_la_LIBADD  = @WAYLAND_CLIENT_LIBS@

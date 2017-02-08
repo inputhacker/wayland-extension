@@ -1,0 +1,56 @@
+<protocol name="tizen_launch">
+  <interface name="tizen_launch_effect" version="1">
+    <request name="create_splash_img">
+      <arg name="id" type="new_id" interface="tizen_launch_splash" summary="new tizen_launch_splash object"/>
+    </request>
+
+    <request name="type_set">
+      <arg name="effect_type" type="string" allow-null="true"/>
+      <arg name="pid" type="uint" />
+      <arg name="options" type="array" allow-null="true" summary="array of options"/>
+    </request>
+
+    <request name="type_unset">
+      <arg name="pid" type="uint" />
+    </request>
+  </interface>
+
+  <interface name="tizen_launch_splash" version="1">
+    <!-- launch img -->
+    <enum name="file_type">
+      <entry name="img" value="0" summary="splash image file path"/>
+      <entry name="edj" value="1" summary="splash edj file path"/>
+    </enum>
+
+    <enum name="indicator">
+      <entry name="off" value="0" summary="splash hide indicator"/>
+      <entry name="on" value="1" summary="splash show indicator"/>
+    </enum>
+
+    <enum name="rotation">
+      <entry name="0" value="0" summary="rotation angle 0 degree"/>
+      <entry name="90" value="90" summary="rotation angle 90 degree"/>
+      <entry name="180" value="180" summary="rotation angle 180 degree"/>
+      <entry name="270" value="270" summary="rotation angle 270 degree"/>
+    </enum>
+
+    <request name="destroy" type="destructor"/>
+
+    <request name="launch">
+      <arg name="file" type="string"/>
+      <arg name="file_type" type="uint" />
+      <arg name="color_depth" type="uint" />
+      <arg name="rotation" type="uint" />
+      <arg name="indicator" type="uint" />
+      <arg name="effect_type" type="string" allow-null="true"/>
+      <arg name="theme_type" type="string" allow-null="true"/>
+      <arg name="options" type="array" allow-null="true" summary="array of options"/>
+    </request>
+
+    <request name="owner">
+      <arg name="pid" type="uint" />
+    </request>
+
+  </interface>
+
+</protocol>
