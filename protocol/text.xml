@@ -29,12 +29,13 @@
   <interface name="wl_text_input" version="1">
     <description summary="text input">
       An object used for text input. Adds support for text input and input
-      methods to applications. A text-input object is created from a
+      methods to applications. A text_input object is created from a
       wl_text_input_manager and corresponds typically to a text entry in an
       application.
-      Requests are used to activate/deactivate the text-input object and set
+
+      Requests are used to activate/deactivate the text_input object and set
       state information like surrounding and selected text or the content type.
-      The information about entered text is sent to the text-input object via
+      The information about entered text is sent to the text_input object via
       the pre-edit and commit events. Using this interface removes the need
       for applications to directly process hardware key events and compose text
       out of them.
@@ -51,11 +52,11 @@
     <request name="destroy" type="destructor"/>
     <request name="activate">
       <description summary="request activation">
-        Requests the text-input object to be activated (typically when the
+        Requests the text_input object to be activated (typically when the
         text entry gets focus).
         The seat argument is a wl_seat which maintains the focus for this
         activation. The surface argument is a wl_surface assigned to the
-        text-input object and tracked for focus lost. The enter event
+        text_input object and tracked for focus lost. The enter event
         is emitted on successful activation.
       </description>
       <arg name="seat" type="object" interface="wl_seat"/>
@@ -63,7 +64,7 @@
     </request>
     <request name="deactivate">
       <description summary="request deactivation">
-        Requests the text-input object to be deactivated (typically when the
+        Requests the text_input object to be deactivated (typically when the
         text entry lost focus). The seat argument is a wl_seat which was used
         for activation.
       </description>
@@ -159,7 +160,7 @@
     <request name="set_preferred_language">
       <description summary="set preferred language">
         Set a specific language. This allows for example a virtual keyboard to
-        show a language specific layout. The "language" argument is a RFC-3066
+        show a language specific layout. The "language" argument is an RFC-3066
         format language tag.
 
         It could be used for example in a word processor to indicate language of
@@ -254,14 +255,14 @@
     </request>
     <event name="enter">
       <description summary="enter event">
-        Notify the text-input object when it received focus. Typically in
+        Notify the text_input object when it received focus. Typically in
         response to an activate request.
       </description>
       <arg name="surface" type="object" interface="wl_surface"/>
     </event>
     <event name="leave">
       <description summary="leave event">
-        Notify the text-input object when it lost focus. Either in response
+        Notify the text_input object when it lost focus. Either in response
         to a deactivate request or when the assigned surface lost focus or was
         destroyed.
       </description>
@@ -387,7 +388,7 @@
     </event>
     <event name="language">
       <description summary="language">
-        Set the language of the input text. The "language" argument is a RFC-3066
+        Set the language of the input text. The "language" argument is an RFC-3066
         format language tag.
       </description>
       <arg name="serial" type="uint" summary="serial of the latest known text input state"/>
@@ -464,11 +465,11 @@
 
   <interface name="wl_text_input_manager" version="1">
     <description summary="text input manager">
-      A factory for text-input objects. This object is a global singleton.
+      A factory for text_input objects. This object is a global singleton.
     </description>
     <request name="create_text_input">
       <description summary="create text input">
-        Creates a new text-input object.
+        Creates a new text_input object.
       </description>
       <arg name="id" type="new_id" interface="wl_text_input"/>
     </request>
