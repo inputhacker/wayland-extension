@@ -301,6 +301,16 @@
         <entry name="key_flag" value="0x000f0000"/>
      </enum>
 
+     <request name="set_remote_render" since="4">
+        <description summary="request offscreen rendering of its provider client">
+           Even if a provider is iconifed already and server sent
+           its static image using tizen_remote_surface@changed_buffer, some
+           privileged clients can request for offscreen rendering of the provider
+           client using this request.
+        </description>
+        <arg name="set" type="uint" summary="do offscreen render of its provider if true" />
+     </request>
+
   </interface>
 
   <interface name="tizen_remote_surface_region" version="1">
