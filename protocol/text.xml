@@ -461,6 +461,18 @@
       </description>
       <arg name="response" type="uint"/>
     </event>
+    <event name="recapture_string">
+      <description summary="recapture">
+        Notify when the existed text should be deleted and a new composing text (pre-edit) or commit string
+        should be set around the current cursor position.
+      </description>
+      <arg name="serial" type="uint" summary="serial of the latest known text input state"/>
+      <arg name="index" type="int"/>
+      <arg name="length" type="uint"/>
+      <arg name="preedit" type="string"/>
+      <arg name="preedit_commit" type="string"/>
+      <arg name="commit" type="string"/>
+    </event>
   </interface>
 
   <interface name="wl_text_input_manager" version="1">
