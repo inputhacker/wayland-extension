@@ -1312,7 +1312,7 @@
     </event>
   </interface>
 
-  <interface name="tizen_clipboard" version="1">
+  <interface name="tizen_clipboard" version="2">
      <description summary="an interface for requests and event about clipboard">
         This interface provides some requests and events about clipboard for other clients.
      </description>
@@ -1331,6 +1331,22 @@
       <description summary="announce data are selected by clipboard">
       </description>
       <arg name="surface" type="object" interface="wl_surface" summary="surface object"/>
+     </event>
+
+     <!-- version 2 additions -->
+     <request name="set_data_only" since="2">
+        <description summary="request for setting data only mode for this wl_client">
+           A wayland client can notify of that the client is data only mode.
+           The data only mode means that this wayland client doesn't have any
+           wl_surfaces at all but it wants to use wl_data_device for some data
+           operations.
+        </description>
+        <arg name="set" type="uint" />
+     </request>
+
+     <event name="allowed_data_only" since="2">
+        <description summary="event to notify if data only set is allowed or not"/>
+        <arg name="allowed" type="uint" />
      </event>
   </interface>
 
