@@ -986,7 +986,7 @@
 
   </interface>
 
-  <interface name="tizen_input_device_manager" version="1">
+  <interface name="tizen_input_device_manager" version="2">
     <description summary="global input device manager object">
       Tizen input device manager is a global interface. This object has device add/remove events
       to provide tizen input device object to a client. This allows for a client to get the con
@@ -1126,6 +1126,14 @@
       <arg name="surface" type="object" interface="wl_surface"/>
       <arg name="x" type="fixed"/>
       <arg name="y" type="fixed"/>
+    </request>
+
+    <!-- version 2 additions -->
+    <request name="init_generator_with_name" since="2">
+      <description summary="initialize input generator system with name">
+      </description>
+      <arg name="clas" type="uint" enum="clas"/>
+      <arg name="name" type="string" />
     </request>
   </interface>
 
