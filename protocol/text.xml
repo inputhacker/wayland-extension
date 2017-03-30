@@ -253,6 +253,12 @@
     <request name="set_capital_mode">
       <arg name="mode" type="uint"/>
     </request>
+    <request name="prediction_hint">
+      <description summary="set the prediction hint">
+        Set the prediction hint string to deliver to the input panel.
+      </description>
+      <arg name="text" type="string"/>
+    </request>
     <event name="enter">
       <description summary="enter event">
         Notify the text_input object when it received focus. Typically in

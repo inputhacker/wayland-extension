@@ -285,6 +285,9 @@
     <event name="capital_mode">
       <arg name="mode" type="uint"/>
     </event>
+    <event name="prediction_hint">
+      <arg name="text" type="string"/>
+    </event>
   </interface>
 
   <interface name="wl_input_method" version="1">
