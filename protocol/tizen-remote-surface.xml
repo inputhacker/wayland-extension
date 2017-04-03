@@ -188,6 +188,8 @@
         <entry name="touch_move" value="6" />
         <entry name="key_down" value="7" />
         <entry name="key_up" value="8" />
+        <entry name="mouse_in" value="9" />
+        <entry name="mouse_out" value="10" />
      </enum>
 
      <!-- for visibility transference -->
