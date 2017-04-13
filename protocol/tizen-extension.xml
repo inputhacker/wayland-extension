@@ -14,7 +14,7 @@
     </event>
   </interface>
 
-  <interface name="tizen_policy" version="4">
+  <interface name="tizen_policy" version="5">
     <request name="get_visibility">
       <arg name="id" type="new_id" interface="tizen_visibility" summary="new visibility object"/>
       <arg name="surface" type="object" interface="wl_surface" summary="surface object"/>
@@ -333,18 +333,27 @@
 
   </interface>
 
-  <interface name="tizen_visibility" version="1">
+  <interface name="tizen_visibility" version="5">
     <request name="destroy" type="destructor"/>
 
     <enum name="visibility">
       <entry name="unobscured" value="0"/>
       <entry name="partially_obscured" value="1"/>
       <entry name="fully_obscured" value="2"/>
+      <entry name="pre_unobscured" value="3" since="5"/>
     </enum>
 
     <event name="notify">
       <arg name="visibility" type="uint"/>
     </event>
+
+    <!-- Version 6 additions -->
+
+    <event name="changed" since="5">
+      <arg name="type" type="uint" enum="visibility" summary="changed visibility type"/>
+      <arg name="option" type="uint" summary="extra value"/>
+    </event>
+
   </interface>
 
   <interface name="tizen_position" version="1">
