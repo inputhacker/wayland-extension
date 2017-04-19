@@ -1367,4 +1367,15 @@
      </event>
   </interface>
 
+  <interface name="tizen_screen_rotation" version="1">
+    <request name="get_ignore_output_transform">
+      <arg name="surface" type="object" interface="wl_surface" summary="surface object"/>
+    </request>
+
+    <event name="ignore_output_transform">
+      <arg name="surface" type="object" interface="wl_surface" summary="surface object"/>
+      <arg name="ignore" type="uint"/>
+    </event>
+  </interface>
+
 </protocol>
