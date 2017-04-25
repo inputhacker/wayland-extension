@@ -383,6 +383,7 @@
       <entry name="edge_swipe" value="1"/>
       <entry name="tap" value="2"/>
       <entry name="pan" value="4"/>
+      <entry name="pinch" value="8"/>
     </enum>
 
     <enum name="mode">
@@ -461,6 +462,28 @@
     <event name="pan">
       <arg name="mode" type="uint" enum="mode"/>
       <arg name="fingers" type="uint"/>
+      <arg name="cx" type="int" summary="x coordinate of center touch point"/>
+      <arg name="cy" type="int" summary="y coordinate of center touch point"/>
+    </event>
+
+    <request name="grab_pinch">
+      <arg name="fingers" type="uint"/>
+    </request>
+
+    <request name="ungrab_pinch">
+      <arg name="fingers" type="uint"/>
+    </request>
+
+    <event name="pinch_notify">
+      <arg name="fingers" type="uint"/>
+      <arg name="error" type="uint"/>
+    </event>
+
+    <event name="pinch">
+      <arg name="mode" type="uint" enum="mode"/>
+      <arg name="fingers" type="uint"/>
+      <arg name="distance" type="fixed"/>
+      <arg name="angle" type="fixed"/>
       <arg name="cx" type="int" summary="x coordinate of center touch point"/>
       <arg name="cy" type="int" summary="y coordinate of center touch point"/>
     </event>
