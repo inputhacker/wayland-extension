@@ -479,6 +479,15 @@
       <arg name="preedit_commit" type="string"/>
       <arg name="commit" type="string"/>
     </event>
+    <event name="commit_content">
+      <description summary="commit content">
+        Notify when the input panel wants to commit a content
+      </description>
+      <arg name="serial" type="uint" summary="serial of the latest known text input state"/>
+      <arg name="content" type="string"/>
+      <arg name="description" type="string"/>
+      <arg name="mime_types" type="string"/>
+    </event>
   </interface>
 
   <interface name="wl_text_input_manager" version="1">

@@ -229,6 +229,12 @@
       <arg name="preedit_commit" type="string"/>
       <arg name="commit" type="string"/>
     </request>
+    <request name="commit_content">
+      <arg name="serial" type="uint" summary="serial of the latest known text input state"/>
+      <arg name="content" type="string"/>
+      <arg name="description" type="string"/>
+      <arg name="mime_types" type="string"/>
+    </request>
     <event name="reset">
     </event>
     <event name="content_type">
