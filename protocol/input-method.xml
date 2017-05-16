@@ -294,6 +294,9 @@
     <event name="prediction_hint">
       <arg name="text" type="string"/>
     </event>
+    <event name="mime_type">
+      <arg name="type" type="string"/>
+    </event>
   </interface>
 
   <interface name="wl_input_method" version="1">

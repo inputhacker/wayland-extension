@@ -259,6 +259,12 @@
       </description>
       <arg name="text" type="string"/>
     </request>
+    <request name="set_mime_type">
+      <description summary="set the mime type">
+        Sets the mime type to deliver to the input panel.
+      </description>
+      <arg name="type" type="string"/>
+    </request>
     <event name="enter">
       <description summary="enter event">
         Notify the text_input object when it received focus. Typically in
