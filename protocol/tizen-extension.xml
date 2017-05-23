@@ -656,7 +656,7 @@
     </event>
   </interface>
 
-  <interface name="tizen_video" version="2">
+  <interface name="tizen_video" version="1">
 
     <description summary="interface for tizen-video">
       Clients can get the video information that the compositor can handle from this interface.
@@ -688,7 +688,7 @@
 
   </interface>
 
-  <interface name="tizen_video_object" version="2">
+  <interface name="tizen_video_object" version="1">
 
     <event name="attribute">
       <arg name="name" type="string"/>
@@ -723,14 +723,14 @@
       </description>
     </request>
 
-    <request name="allowed_attribute" since="2">
+    <request name="allowed_attribute">
       <description summary="allowed_attribute">
         If tizen_video_object.allowed_attribute is applied to a video_object,
         set_attribute request will be deliever to tdm backend directly.
       </description>
     </request>
 
-    <request name="disallowed_attribute" since="2">
+    <request name="disallowed_attribute">
       <description summary="disallowed_attribute">
         If tizen_video_object.disallowed_attribute is applied to a video_object,
         It would be tdm_attribute call when topmost showing.
