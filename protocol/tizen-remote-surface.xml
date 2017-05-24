@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <protocol name="tizen_remote_surface">
-  <interface name="tizen_remote_surface_manager" version="4">
+  <interface name="tizen_remote_surface_manager" version="5">
      <description summary="manager of tizen_remote_surface">
         A manager of tizen_remote_surface. This object is in charge of
         creating tizen_remote_surface_provider and tizen_remote_surface and
@@ -88,7 +88,7 @@
      </request>>
   </interface>
 
-  <interface name="tizen_remote_surface" version="4">
+  <interface name="tizen_remote_surface" version="5">
      <description summary="a consumer of buffers from a provider">
         A consumer client of provider client's buffer.
         The consumer can receive notice of buffer updating of
@@ -311,6 +311,35 @@
            client using this request.
         </description>
         <arg name="set" type="uint" summary="do offscreen render of its provider if true" />
+     </request>
+
+     <!-- Version 5 additions -->
+     <enum name="changed_buffer_event_filter" since="5">
+        <description summary="vaules for changed_buffer event filter"/>
+        <entry name="none" value="0x00000000" summary="none"/>
+        <entry name="tbm" value="0x00000001" summary="tbm type filter"/>
+        <entry name="image_file" value="0x00000002" summary="image file type filter"/>
+     </enum>
+
+     <request name="set_changed_buffer_event_filter" since="5">
+        <description summary="set changed_buffer event filter to be accepted or denied">
+           This request enables the client to accept or reject specific 'changed_buffer' event
+           using given filter value. If the client set specific value for 'changed_buffer' event
+           to filter that, then that event will not be sent to the client. An existing filter
+           can be removed using 'none' value of type argument. In this case, all 'changed_buffer'
+           events will be delivered to the client.
+        </description>
+        <arg name="type" type="uint" enum="changed_buffer_event_filter" summary="type of buffer" />
+     </request>
+
+     <request name="get_current_buffer" since="5">
+        <description summary="get the current buffer of provider client">
+           This request asks the server to send the provider's current buffer with given type
+           of buffer. Since resulting buffer is passed in the 'changed_buffer' event callback,
+           the client should not set 'changed_buffer' event filter with given buffer type.
+        </description>
+        <arg name="type" type="uint" enum="buffer_type" summary="buffer type"/>
+        <arg name="serial" type="uint" summary="request serial number"/>
      </request>
 
   </interface>
