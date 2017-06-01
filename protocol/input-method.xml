@@ -367,5 +367,12 @@
       </description>
       <arg name="state" type="uint"/>
     </request>
+
+    <request name="set_floating_panel">
+      <description summary="set the panel type as a floating panel">
+        A Keyboard surface is shown as a floating panel type.
+      </description>
+      <arg name="state" type="uint"/>
+    </request>
   </interface>
 </protocol>
