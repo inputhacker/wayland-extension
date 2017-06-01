@@ -229,12 +229,6 @@
       <arg name="preedit_commit" type="string"/>
       <arg name="commit" type="string"/>
     </request>
-    <request name="input_panel_type">
-      <description summary="set input_panel type">
-        Set the input_panel type.
-      </description>
-      <arg name="type" type="uint"/>
-    </request>
     <event name="reset">
     </event>
     <event name="content_type">
