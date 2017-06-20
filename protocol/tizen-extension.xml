@@ -384,7 +384,7 @@
       <entry name="tap" value="2" since="2"/>
       <entry name="pan" value="4" since="2"/>
       <entry name="pinch" value="8" since="2"/>
-      <entry name="palm_hover" value="16" since="2"/>
+      <entry name="palm_cover" value="16" since="2"/>
     </enum>
 
     <enum name="mode">
@@ -489,17 +489,17 @@
       <arg name="cy" type="int" summary="y coordinate of center touch point"/>
     </event>
 
-    <request name="grab_palm_hover" since="2">
+    <request name="grab_palm_cover" since="2">
     </request>
 
-    <request name="ungrab_palm_hover" since="2">
+    <request name="ungrab_palm_cover" since="2">
     </request>
 
-    <event name="palm_hover_notify" since="2">
+    <event name="palm_cover_notify" since="2">
       <arg name="error" type="uint"/>
     </event>
 
-    <event name="palm_hover" since="2">
+    <event name="palm_cover" since="2">
       <arg name="mode" type="uint" enum="mode"/>
       <arg name="time" type="uint"/>
       <arg name="cx" type="int" summary="x coordinate of center touch point"/>
