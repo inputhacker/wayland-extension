@@ -395,23 +395,38 @@
     <enum name="edge">
       <entry name="top" value="1"/>
       <entry name="right" value="2"/>
-      <entry name="bottom" value="4"/>
-      <entry name="left" value="8"/>
+      <entry name="bottom" value="3"/>
+      <entry name="left" value="4"/>
+    </enum>
+
+    <enum name="edge_size">
+      <entry name="none" value="0"/>
+      <entry name="full" value="1"/>
+      <entry name="partial" value="2"/>
     </enum>
 
     <request name="grab_edge_swipe">
       <arg name="fingers" type="uint"/>
       <arg name="edge" type="uint" enum="edge"/>
+      <arg name="edge_size" type="uint" enum="edge_size"/>
+      <arg name="start_point" type="uint"/>
+      <arg name="end_point" type="uint"/>
     </request>
 
     <request name="ungrab_edge_swipe">
       <arg name="fingers" type="uint"/>
       <arg name="edge" type="uint" enum="edge"/>
+      <arg name="edge_size" type="uint" enum="edge_size"/>
+      <arg name="start_point" type="uint"/>
+      <arg name="end_point" type="uint"/>
     </request>
 
     <event name="grab_edge_swipe_notify">
       <arg name="fingers" type="uint"/>
       <arg name="edge" type="uint" enum="edge"/>
+      <arg name="edge_size" type="uint" enum="edge_size"/>
+      <arg name="start_point" type="uint"/>
+      <arg name="end_point" type="uint"/>
       <arg name="error" type="uint"/>
     </event>
 
