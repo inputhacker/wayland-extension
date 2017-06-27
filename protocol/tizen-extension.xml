@@ -466,11 +466,21 @@
     <request name="ungrab_palm_cover" since="2">
     </request>
 
+    <request name="select_palm_cover" since="2">
+      <arg name="surface" type="object" interface="wl_surface"/>
+    </request>
+
+    <request name="deselect_palm_cover" since="2">
+      <arg name="surface" type="object" interface="wl_surface"/>
+    </request>
+
     <event name="palm_cover_notify" since="2">
+      <arg name="surface" type="object" interface="wl_surface" allow-null="true"/>
       <arg name="error" type="uint"/>
     </event>
 
     <event name="palm_cover" since="2">
+      <arg name="surface" type="object" interface="wl_surface" allow-null="true"/>
       <arg name="mode" type="uint" enum="mode"/>
       <arg name="duration" type="uint"/>
       <arg name="cx" type="int" summary="x coordinate of center touch point"/>
