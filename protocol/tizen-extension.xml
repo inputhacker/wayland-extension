@@ -488,6 +488,19 @@
       <arg name="size" type="uint"/>
       <arg name="pressure" type="fixed"/>
     </event>
+
+    <request name="activate_set" since="2">
+      <arg name="surface" type="object" interface="wl_surface" allow-null="true"/>
+      <arg name="type" type="uint" enum="type"/>
+      <arg name="active" type="uint"/>
+    </request>
+
+    <event name="activate_notify" since="2">
+      <arg name="surface" type="object" interface="wl_surface" allow-null="true"/>
+      <arg name="type" type="uint" enum="type"/>
+      <arg name="active" type="uint"/>
+      <arg name="error" type="uint"/>
+    </event>
   </interface>
 
   <interface name="tizen_keyrouter" version="1">
