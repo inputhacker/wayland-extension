@@ -472,9 +472,11 @@
 
     <event name="palm_cover" since="2">
       <arg name="mode" type="uint" enum="mode"/>
-      <arg name="time" type="uint"/>
+      <arg name="duration" type="uint"/>
       <arg name="cx" type="int" summary="x coordinate of center touch point"/>
       <arg name="cy" type="int" summary="y coordinate of center touch point"/>
+      <arg name="size" type="uint"/>
+      <arg name="pressure" type="fixed"/>
     </event>
   </interface>
 
