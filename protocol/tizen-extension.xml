@@ -377,6 +377,7 @@
       <entry name="no_permission" value="2"/>
       <entry name="no_system_resources" value="3"/>
       <entry name="grabbed_already" value="4"/>
+      <entry name="not_supported" value="5"/>
     </enum>
 
     <enum name="type">
