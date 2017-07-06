@@ -394,5 +394,12 @@
       </description>
       <arg name="state" type="uint"/>
     </request>
+
+    <request name="set_floating_drag_enabled">
+      <description summary="set floating drag enabled">
+        Set the permission to move floating panel.
+      </description>
+      <arg name="enabled" type="uint"/>
+    </request>
   </interface>
 </protocol>
