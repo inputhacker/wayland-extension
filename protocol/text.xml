@@ -492,6 +492,14 @@
       <arg name="preedit_commit" type="string"/>
       <arg name="commit" type="string"/>
     </event>
+    <event name="input_panel_event">
+      <description summary="input panel event">
+        Notify when the input panel event is changed
+      </description>
+      <arg name="serial" type="uint" summary="serial of the latest known text input state"/>
+      <arg name="event_type" type="uint"/>
+      <arg name="value" type="uint"/>
+    </event>
     <event name="commit_content">
       <description summary="commit content">
         Notify when the input panel wants to commit a content
@@ -500,14 +508,6 @@
       <arg name="content" type="string"/>
       <arg name="description" type="string"/>
       <arg name="mime_types" type="string"/>
-    </event>
-    <event name="input_panel_event">
-      <description summary="input panel event">
-        Notify when the input panel event is changed
-      </description>
-      <arg name="serial" type="uint" summary="serial of the latest known text input state"/>
-      <arg name="event_type" type="uint"/>
-      <arg name="value" type="uint"/>
     </event>
   </interface>
 
