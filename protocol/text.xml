@@ -473,6 +473,14 @@
       <arg name="preedit_commit" type="string"/>
       <arg name="commit" type="string"/>
     </event>
+    <event name="input_panel_event">
+      <description summary="input panel event">
+        Notify when the input panel event is changed
+      </description>
+      <arg name="serial" type="uint" summary="serial of the latest known text input state"/>
+      <arg name="event_type" type="uint"/>
+      <arg name="value" type="uint"/>
+    </event>
   </interface>
 
   <interface name="wl_text_input_manager" version="1">

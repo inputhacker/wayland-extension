@@ -229,6 +229,14 @@
       <arg name="preedit_commit" type="string"/>
       <arg name="commit" type="string"/>
     </request>
+    <request name="input_panel_event">
+      <description summary="input panel event">
+        Send the input panel event.
+      </description>
+      <arg name="serial" type="uint" summary="serial of the latest known text input state"/>
+      <arg name="event_type" type="uint"/>
+      <arg name="value" type="uint"/>
+    </request>
     <event name="reset">
     </event>
     <event name="content_type">
