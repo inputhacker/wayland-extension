@@ -243,6 +243,9 @@
       <arg name="description" type="string"/>
       <arg name="mime_types" type="string"/>
     </request>
+    <request name="update_candidate_state">
+      <arg name="state" type="uint"/>
+    </request>
     <event name="reset">
     </event>
     <event name="content_type">
