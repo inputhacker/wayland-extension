@@ -385,6 +385,9 @@
       <entry name="edge_drag" value="2" since="2"/>
       <entry name="tap" value="4" since="2"/>
       <entry name="palm_cover" value="8" since="2"/>
+      <entry name="pan" value="16" since="2"/>
+      <entry name="pinch" value="32" since="2"/>
+      <entry name="palm_swipe" value="64" since="2"/>
     </enum>
 
     <enum name="mode">
