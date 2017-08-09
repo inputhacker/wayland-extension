@@ -1,8 +1,13 @@
 <protocol name="tizen_extension">
-  <interface name="tizen_surface" version="1">
+  <interface name="tizen_surface" version="2">
     <request name="get_tizen_resource">
       <arg name="id" type="new_id" interface="tizen_resource" />
       <arg name="surface" type="object" interface="wl_surface" />
+    </request>
+    <request name="destroy" type="destructor" since="2">
+      <description summary="destroy the tizen_surface">
+	Destroy the tizen_surface.
+      </description>
     </request>
   </interface>
 
