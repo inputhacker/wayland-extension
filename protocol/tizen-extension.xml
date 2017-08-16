@@ -1122,6 +1122,7 @@
       <arg name="sock_fd" type="fd"/>
     </event>
 
+    <request name="destroy" type="destructor"/>
   </interface>
 
   <interface name="tizen_input_device_manager" version="2">
