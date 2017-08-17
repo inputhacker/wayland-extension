@@ -381,7 +381,7 @@
     </event>
   </interface>
 
-  <interface name="tizen_gesture" version="2">
+  <interface name="tizen_gesture" version="3">
     <enum name="error">
       <entry name="none" value="0"/>
       <entry name="invalid_data" value="1"/>
@@ -550,6 +550,13 @@
       <arg name="active" type="uint"/>
       <arg name="error" type="uint"/>
     </event>
+
+    <request name="destroy" type="destructor" since="3">
+      <description summary="destroy the tizen_gesture">
+        Destroy the tizen_gesture.
+      </description>
+    </request>
+
   </interface>
 
   <interface name="tizen_keyrouter" version="1">
