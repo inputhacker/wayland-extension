@@ -1565,7 +1565,7 @@
      </event>
   </interface>
 
-  <interface name="tizen_screen_rotation" version="1">
+  <interface name="tizen_screen_rotation" version="2">
     <request name="get_ignore_output_transform">
       <arg name="surface" type="object" interface="wl_surface" summary="surface object"/>
     </request>
@@ -1574,6 +1574,13 @@
       <arg name="surface" type="object" interface="wl_surface" summary="surface object"/>
       <arg name="ignore" type="uint"/>
     </event>
+
+    <request name="destroy" type="destructor" since="2">
+      <description summary="destroy the tizen_screen_rotation">
+        Destroy the tizen_screen_rotation.
+      </description>
+    </request>
+
   </interface>
 
 </protocol>
