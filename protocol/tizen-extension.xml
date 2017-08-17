@@ -806,7 +806,7 @@
     </event>
   </interface>
 
-  <interface name="tizen_video" version="1">
+  <interface name="tizen_video" version="2">
 
     <description summary="interface for tizen-video">
       Clients can get the video information that the compositor can handle from this interface.
@@ -834,6 +834,12 @@
     <request name="get_viewport">
       <arg name="id" type="new_id" interface="tizen_viewport" />
       <arg name="surface" type="object" interface="wl_surface" />
+    </request>
+
+    <request name="destroy" type="destructor" since="2">
+      <description summary="destroy the tizen_video">
+        Destroy the tizen_video.
+      </description>
     </request>
 
   </interface>
