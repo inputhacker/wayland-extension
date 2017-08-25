@@ -19,7 +19,7 @@
     </event>
   </interface>
 
-  <interface name="tizen_policy" version="6">
+  <interface name="tizen_policy" version="7">
     <request name="get_visibility">
       <arg name="id" type="new_id" interface="tizen_visibility" summary="new visibility object"/>
       <arg name="surface" type="object" interface="wl_surface" summary="surface object"/>
@@ -340,6 +340,11 @@
       <description summary="destroy the tizen_policy">
         Destroy the tizen_policy.
       </description>
+    </request>
+
+    <request name="has_video" since="7">
+      <arg name="surface" type="object" interface="wl_surface" summary="surface object"/>
+      <arg name="has" type="uint"/>
     </request>
 
   </interface>
