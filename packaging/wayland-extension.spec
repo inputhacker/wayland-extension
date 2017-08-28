@@ -1,5 +1,5 @@
 Name:		wayland-extension
-Version:	1.1.26
+Version:	1.1.27
 Release:	0
 Summary:	Wayland Extension Protocol
 License:	MIT
