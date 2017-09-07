@@ -707,7 +707,7 @@
 
   </interface>
 
-  <interface name="tizen_screenshooter" version="2">
+  <interface name="tizen_screenshooter" version="1">
     <description summary="interface for tizen-screenshooter">
       Clients can get a screenmirror object from this interface.
     </description>
@@ -743,7 +743,7 @@
       <arg name="noti" type="uint"/>
     </event>
 
-    <request name="destroy" type="destructor" since="2">
+    <request name="destroy" type="destructor">
       <description summary="destroy the tizen_screenshooter">
         Destroy the tizen_screenshooter.
       </description>
