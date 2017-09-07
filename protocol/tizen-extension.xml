@@ -623,6 +623,13 @@
     <event name="key_cancel">
       <arg name="key" type="uint"/>
     </event>
+
+    <request name="destroy" type="destructor">
+      <description summary="destroy the tizen_keyrouter">
+        Destroy the tizen_keyrouter.
+      </description>
+    </request>
+
   </interface>
 
   <interface name="tizen_screenshooter" version="1">
