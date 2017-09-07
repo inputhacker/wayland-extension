@@ -1305,6 +1305,13 @@
     <request name="create_img">
       <arg name="id" type="new_id" interface="tizen_launch_image" summary="new tizen_launch_image object"/>
     </request>
+
+    <request name="destroy" type="destructor">
+      <description summary="destroy the tizen_launchscreen">
+        Destroy the tizen_launchscreen.
+      </description>
+    </request>
+
   </interface>
 
   <interface name="tizen_launch_image" version="1">
