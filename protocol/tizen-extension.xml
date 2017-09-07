@@ -1389,6 +1389,13 @@
       <arg name="brightness" type="int"/>
       <arg name="error_state" type="uint"/>
     </event>
+
+    <request name="destroy" type="destructor">
+      <description summary="destroy the tizen_display_policy">
+        Destroy the tizen_display_policy.
+      </description>
+    </request>
+
   </interface>
 
   <interface name="tizen_indicator" version="1">
