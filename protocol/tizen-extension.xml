@@ -564,7 +564,7 @@
 
   </interface>
 
-  <interface name="tizen_keyrouter" version="2">
+  <interface name="tizen_keyrouter" version="1">
     <description summary="an interface to set each focus for each key">
       In tradition, all the keys in a keyboard and a device on which
       some keys are attached will be sent to focus surface by default.
@@ -699,7 +699,7 @@
       <arg name="key" type="uint"/>
     </event>
 
-    <request name="destroy" type="destructor" since="2">
+    <request name="destroy" type="destructor">
       <description summary="destroy the tizen_keyrouter">
         Destroy the tizen_keyrouter.
       </description>
