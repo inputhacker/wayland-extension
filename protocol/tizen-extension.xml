@@ -1489,6 +1489,12 @@
       <arg name="surface" type="object" interface="wl_surface" summary="surface object"/>
       <arg name="ignore" type="uint"/>
     </event>
+
+    <request name="destroy" type="destructor">
+      <description summary="destroy the tizen_screen_rotation">
+        Destroy the tizen_screen_rotation.
+      </description>
+    </request>
   </interface>
 
 </protocol>
