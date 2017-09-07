@@ -4,6 +4,13 @@
       <arg name="id" type="new_id" interface="tizen_resource" />
       <arg name="surface" type="object" interface="wl_surface" />
     </request>
+
+    <request name="destroy" type="destructor">
+      <description summary="destroy the tizen_surface">
+        Destroy the tizen_surface.
+      </description>
+    </request>
+
   </interface>
 
   <interface name="tizen_resource" version="1">
