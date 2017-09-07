@@ -759,6 +759,12 @@
       <arg name="surface" type="object" interface="wl_surface" />
     </request>
 
+    <request name="destory" type="destructor">
+      <description summary="destroy the tizen_video">
+        Destroy the tizen_video.
+      </description>
+    </request>
+
   </interface>
 
   <interface name="tizen_video_object" version="1">
