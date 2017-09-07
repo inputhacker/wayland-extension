@@ -661,6 +661,12 @@
       <arg name="noti" type="uint"/>
     </event>
 
+    <request name="destroy" type="destructor">
+      <description summary="destroy the tizen_screenshooter">
+        Destroy the tizen_screenshooter.
+      </description>
+    </request>
+
   </interface>
 
   <interface name="tizen_screenmirror" version="1">
