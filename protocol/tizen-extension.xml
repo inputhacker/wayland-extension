@@ -837,6 +837,12 @@
       <arg name="value" type="uint"/>
     </event>
 
+    <request name="destroy" type="destructor">
+      <description summary="destroy the tizen_subsurface_watcher">
+        Destroy the tizen_subsurface_watcher.
+      </description>
+    </request>
+
   </interface>
 
   <interface name="tizen_viewport" version="1">
