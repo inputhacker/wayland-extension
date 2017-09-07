@@ -900,7 +900,7 @@
 
   </interface>
 
-  <interface name="tizen_subsurface_watcher" version="2">
+  <interface name="tizen_subsurface_watcher" version="1">
 
     <enum name="msg">
       <entry name="success" value="0"/>
@@ -912,7 +912,7 @@
       <arg name="value" type="uint"/>
     </event>
 
-    <request name="destroy" type="destructor" since="2">
+    <request name="destroy" type="destructor">
       <description summary="destroy the tizen_subsurface_watcher">
         Destroy the tizen_subsurface_watcher.
       </description>
