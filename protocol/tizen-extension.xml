@@ -1168,7 +1168,7 @@
     <request name="destroy" type="destructor"/>
   </interface>
 
-  <interface name="tizen_input_device_manager" version="3">
+  <interface name="tizen_input_device_manager" version="2">
     <description summary="global input device manager object">
       Tizen input device manager is a global interface. This object has device add/remove events
       to provide tizen input device object to a client. This allows for a client to get the con
@@ -1318,7 +1318,7 @@
       <arg name="name" type="string" />
     </request>
 
-    <request name="destroy" type="destructor" since="3">
+    <request name="destroy" type="destructor" since="2">
       <description summary="destroy the tizen_input_device_manager">
         Destroy the tizen_input_device_manager.
       </description>
