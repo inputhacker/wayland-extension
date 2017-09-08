@@ -386,7 +386,7 @@
     </event>
   </interface>
 
-  <interface name="tizen_gesture" version="3">
+  <interface name="tizen_gesture" version="2">
     <enum name="error">
       <entry name="none" value="0"/>
       <entry name="invalid_data" value="1"/>
@@ -556,7 +556,7 @@
       <arg name="error" type="uint"/>
     </event>
 
-    <request name="destroy" type="destructor" since="3">
+    <request name="destroy" type="destructor" since="2">
       <description summary="destroy the tizen_gesture">
         Destroy the tizen_gesture.
       </description>
