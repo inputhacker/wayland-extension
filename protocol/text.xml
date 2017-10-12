@@ -279,6 +279,13 @@
       <arg name="text" type="string"/>
       <arg name="cursor_position" type="uint"/>
     </request>
+    <request name="prediction_hint_data">
+      <description summary="set the prediction hint data">
+        Set the prediction hint data.
+      </description>
+      <arg name="key" type="string"/>
+      <arg name="value" type="string"/>
+    </request>
     <event name="enter">
       <description summary="enter event">
         Notify the text_input object when it received focus. Typically in

@@ -312,6 +312,10 @@
       <arg name="text" type="string"/>
       <arg name="cursor_position" type="uint"/>
     </event>
+    <event name="prediction_hint_data">
+      <arg name="key" type="string"/>
+      <arg name="value" type="string"/>
+    </event>
   </interface>
 
   <interface name="wl_input_method" version="1">
