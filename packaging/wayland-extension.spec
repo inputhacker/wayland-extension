@@ -1,7 +1,7 @@
 Name:		wayland-extension
 Version:	1.1.27
 Release:	0
-Summary:	Wayland Extension Protocol
+Summary:	Wayland extenstion protocols that add functionality not available in the Wayland core protocol
 License:	MIT
 Group:		Graphics & UI Framework/Wayland Window System
 URL:		http://www.tizen.org/
@@ -14,7 +14,7 @@ BuildRequires:  pkgconfig(wayland-server)
 BuildRequires:  pkgconfig(wayland-client)
 
 %description
-wayland-extension is a protocol for tizen window system.
+wayland-extension contains Wayland protocols that add functionality not available in the Wayland core protocol.
 
 %package -n libwayland-extension-client
 Group:		Graphics & UI Framework/Wayland Window System
@@ -53,6 +53,15 @@ wayland-extension is a protocol for tizen window system.
 
 This package contains all necessary include files and libraries needed
 to develop a compositor that require these.
+
+%package -n wayland-protocols
+Summary:	Wayland upstream protocols
+Group:		Graphics & UI Framework/Development
+Requires:   libwayland-client
+
+%description -n wayland-protocols
+wayland-protocols contains Wayland upstream protocols that add functionality not available in the Wayland core protocol
+
 
 %prep
 %setup -q
@@ -98,5 +107,13 @@ make %{?_smp_mflags}
 %_includedir/wayland-extension/*-server-protocol.h
 %_libdir/*-server.so
 %_libdir/pkgconfig/*-server.pc
+
+%files -n wayland-protocols
+%manifest %{name}.manifest
+%license COPYING
+%defattr(-,root,root)
+%_datadir/wayland-extension/protocol/stable/*
+%_datadir/wayland-extension/protocol/unstable/*
+%_libdir/pkgconfig/wayland-protocols.pc
 
 %changelog

@@ -1,4 +1,7 @@
-INCLUDES = -I$(top_builddir)/protocol/tizen -I$(top_srcdir)/src
+AM_CPPFLAGS = \
+			-I$(top_builddir)/protocol/tizen \
+			-I$(top_srcdir)/src \
+			$(NULL)
 
 pkgconfigdir = $(libdir)/pkgconfig
 protocoldir = $(libdir)
@@ -208,3 +211,49 @@ libtizen_launch_server_la_LIBADD  = @WAYLAND_SERVER_LIBS@
 libtizen_launch_client_la_SOURCES = protocol/tizen/tizen-launch-protocol.c
 libtizen_launch_client_la_CFLAGS  = @WAYLAND_CLIENT_CFLAGS@
 libtizen_launch_client_la_LIBADD  = @WAYLAND_CLIENT_LIBS@
+
+
+### wayland-protocols
+unstable_protocols = \
+	protocol/unstable/pointer-gestures/pointer-gestures-unstable-v1.xml \
+	protocol/unstable/fullscreen-shell/fullscreen-shell-unstable-v1.xml \
+	protocol/unstable/linux-dmabuf/linux-dmabuf-unstable-v1.xml \
+	protocol/unstable/text-input/text-input-unstable-v1.xml \
+	protocol/unstable/input-method/input-method-unstable-v1.xml \
+	protocol/unstable/xdg-shell/xdg-shell-unstable-v5.xml \
+	protocol/unstable/xdg-shell/xdg-shell-unstable-v6.xml \
+	protocol/unstable/relative-pointer/relative-pointer-unstable-v1.xml \
+	protocol/unstable/pointer-constraints/pointer-constraints-unstable-v1.xml \
+	protocol/unstable/tablet/tablet-unstable-v1.xml \
+	protocol/unstable/tablet/tablet-unstable-v2.xml \
+	protocol/unstable/xdg-foreign/xdg-foreign-unstable-v1.xml \
+	protocol/unstable/xdg-foreign/xdg-foreign-unstable-v2.xml \
+	protocol/unstable/idle-inhibit/idle-inhibit-unstable-v1.xml \
+	protocol/unstable/xwayland-keyboard-grab/xwayland-keyboard-grab-unstable-v1.xml \
+	protocol/unstable/keyboard-shortcuts-inhibit/keyboard-shortcuts-inhibit-unstable-v1.xml \
+	protocol/unstable/xdg-output/xdg-output-unstable-v1.xml \
+	$(NULL)
+
+stable_protocols = \
+	protocol/stable/presentation-time/presentation-time.xml \
+	protocol/stable/viewporter/viewporter.xml \
+	$(NULL)
+
+nobase_dist_pkgdata_DATA = \
+	$(unstable_protocols) \
+	$(stable_protocols) \
+	$(NULL)
+
+dist_noinst_DATA = \
+	$(sort $(foreach p,$(unstable_protocols),$(dir $p)README)) \
+	$(sort $(foreach p,$(stable_protocols),$(dir $p)README)) \
+	$(NULL)
+
+pkgconfig_DATA += src/wayland-protocols.pc
+
+dist_check_SCRIPTS = tests/scan.sh
+
+TESTS = $(unstable_protocols) $(stable_protocols)
+TEST_EXTENSIONS = .xml
+AM_TESTS_ENVIRONMENT = SCANNER='$(wayland_scanner)'; export SCANNER;
+XML_LOG_COMPILER = $(srcdir)/tests/scan.sh

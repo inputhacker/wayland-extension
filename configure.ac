@@ -63,5 +63,6 @@ AC_CONFIG_FILES([
 	src/template-client.pc
 	src/tizen-remote-surface-server.pc
 	src/tizen-remote-surface-client.pc
+	src/wayland-protocols.pc
 ])
 AC_OUTPUT
