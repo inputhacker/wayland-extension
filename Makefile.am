@@ -1,5 +1,7 @@
 AM_CPPFLAGS = \
 			-I$(top_builddir)/protocol/tizen \
+			-I$(top_builddir)/protocol/unstable \
+			-I$(top_builddir)/protocol/stable \
 			-I$(top_srcdir)/src \
 			$(NULL)
 
@@ -11,12 +13,28 @@ pkgconfig_DATA =
 protocolinclude_HEADERS = src/wayland-extension-version.h
 protocol_LTLIBRARIES =
 
-### protocol.[ch]
+### protocol/tizen/protocol.[ch]
 protocol/tizen/%-protocol.c : $(top_srcdir)/protocol/tizen/%.xml
 	$(wayland_scanner) code < $< > $@
 protocol/tizen/%-server-protocol.h : $(top_srcdir)/protocol/tizen/%.xml
 	$(wayland_scanner) server-header < $< > $@
 protocol/tizen/%-client-protocol.h : $(top_srcdir)/protocol/tizen/%.xml
+	$(wayland_scanner) client-header < $< > $@
+
+### protocol/unstable/protocol.[ch]
+protocol/unstable/%-protocol.c : $(top_srcdir)/protocol/unstable/*/%.xml
+	$(wayland_scanner) code < $< > $@
+protocol/unstable/%-server-protocol.h : $(top_srcdir)/protocol/unstable/*/%.xml
+	$(wayland_scanner) server-header < $< > $@
+protocol/unstable/%-client-protocol.h : $(top_srcdir)/protocol/unstable/*/%.xml
+	$(wayland_scanner) client-header < $< > $@
+
+### protocol/stable/protocol.[ch]
+protocol/stable/%-protocol.c : $(top_srcdir)/protocol/stable/*/%.xml
+	$(wayland_scanner) code < $< > $@
+protocol/stable/%-server-protocol.h : $(top_srcdir)/protocol/stable/*/%.xml
+	$(wayland_scanner) server-header < $< > $@
+protocol/stable/%-client-protocol.h : $(top_srcdir)/protocol/stable/*/%.xml
 	$(wayland_scanner) client-header < $< > $@
 
 ### protocol.pc
@@ -41,6 +59,23 @@ libxdg_shell_server_la_LIBADD  = @WAYLAND_SERVER_LIBS@
 libxdg_shell_client_la_SOURCES = protocol/tizen/xdg-shell-protocol.c
 libxdg_shell_client_la_CFLAGS  = @WAYLAND_CLIENT_CFLAGS@
 libxdg_shell_client_la_LIBADD  = @WAYLAND_CLIENT_LIBS@
+
+### xdg-shell (unstable v6)
+protocol_LTLIBRARIES += \
+	libxdg-shell-unstable-v6-server.la \
+	libxdg-shell-unstable-v6-client.la
+pkgconfig_DATA += \
+	src/xdg-shell-unstable-v6-server.pc \
+	src/xdg-shell-unstable-v6-client.pc
+protocolinclude_HEADERS += \
+	protocol/unstable/xdg-shell-unstable-v6-server-protocol.h \
+	protocol/unstable/xdg-shell-unstable-v6-client-protocol.h
+libxdg_shell_unstable_v6_server_la_SOURCES = protocol/unstable/xdg-shell-unstable-v6-protocol.c
+libxdg_shell_unstable_v6_server_la_CFLAGS  = @WAYLAND_SERVER_CFLAGS@
+libxdg_shell_unstable_v6_server_la_LIBADD  = @WAYLAND_SERVER_LIBS@
+libxdg_shell_unstable_v6_client_la_SOURCES = protocol/unstable/xdg-shell-unstable-v6-protocol.c
+libxdg_shell_unstable_v6_client_la_CFLAGS  = @WAYLAND_CLIENT_CFLAGS@
+libxdg_shell_unstable_v6_client_la_LIBADD  = @WAYLAND_CLIENT_LIBS@
 
 ### input-method
 protocol_LTLIBRARIES += \
