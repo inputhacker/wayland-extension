@@ -25,7 +25,7 @@ src/%-server.pc : $(top_srcdir)/src/template-server.pc
 src/%-client.pc : $(top_srcdir)/src/template-client.pc
 	$(cp) $< $@ && $(perl) -pi -e 's|template|$*|g' $@
 
-### xdg-shell
+### xdg-shell (unstable v5)
 protocol_LTLIBRARIES += \
 	libxdg-shell-server.la \
 	libxdg-shell-client.la
