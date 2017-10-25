@@ -6,6 +6,11 @@ m4_define([wayland_extension_micro_version], [0])
 m4_define([wayland_extension_version],
           [wayland_extension_major_version.wayland_extension_minor_version.wayland_extension_micro_version])
 
+m4_define([wayland_protocols_major_version], [1])
+m4_define([wayland_protocols_minor_version], [11])
+m4_define([wayland_protocols_version],
+          [wayland_protocols_major_version.wayland_protocols_minor_version])
+
 AC_INIT([wayland-extension],
         [wayland_extension_version],
         [https://bugs.tizen.org/jira],
@@ -15,6 +20,7 @@ AC_SUBST([WAYLAND_EXTENSION_VERSION_MAJOR], [wayland_extension_major_version])
 AC_SUBST([WAYLAND_EXTENSION_VERSION_MINOR], [wayland_extension_minor_version])
 AC_SUBST([WAYLAND_EXTENSION_VERSION_MICRO], [wayland_extension_micro_version])
 AC_SUBST([WAYLAND_EXTENSION_VERSION], [wayland_extension_version])
+AC_SUBST([WAYLAND_PROTOCOLS_VERSION], [wayland_protocols_version])
 
 AC_CONFIG_HEADERS([config.h])
 #AC_CONFIG_MACRO_DIR([m4])
