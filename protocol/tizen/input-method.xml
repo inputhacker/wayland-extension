@@ -308,6 +308,10 @@
     <event name="mime_type">
       <arg name="type" type="string"/>
     </event>
+    <event name="finalized_content">
+      <arg name="text" type="string"/>
+      <arg name="cursor_position" type="uint"/>
+    </event>
   </interface>
 
   <interface name="wl_input_method" version="1">

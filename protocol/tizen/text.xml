@@ -272,6 +272,13 @@
       <arg name="x" type="uint"/>
       <arg name="y" type="uint"/>
     </request>
+    <request name="finalize_content">
+      <description summary="finalize its content">
+        Finalized its content right before losing the focus.
+      </description>
+      <arg name="text" type="string"/>
+      <arg name="cursor_position" type="uint"/>
+    </request>
     <event name="enter">
       <description summary="enter event">
         Notify the text_input object when it received focus. Typically in
