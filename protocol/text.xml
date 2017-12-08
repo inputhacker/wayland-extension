@@ -106,6 +106,18 @@
       <entry name="latin" value="0x100" summary="just latin characters should be entered"/>
       <entry name="multiline" value="0x200" summary="the text input is multiline"/>
       <entry name="word_capitalization" value="0x400" summary="switch to uppercase letters at the start of a word"/>
+      <entry name="autofill_credit_card_expiration_date" value="0x10000" summary="autofilled with credit card expiration date"/>
+      <entry name="autofill_credit_card_expiration_day" value="0x20000" summary="autofilled with credit card expiration day"/>
+      <entry name="autofill_credit_card_expiration_month" value="0x30000" summary="autofilled with credit card expiration month"/>
+      <entry name="autofill_credit_card_expiration_year" value="0x40000" summary="autofilled with credit card expiration year"/>
+      <entry name="autofill_credit_card_number" value="0x50000" summary="autofilled with credit card number"/>
+      <entry name="autofill_credit_card_security_code" value="0x60000" summary="autofilled with credit card security code"/>
+      <entry name="autofill_email_address" value="0x70000" summary="autofilled with email address"/>
+      <entry name="autofill_phone" value="0x80000" summary="autofilled with phone number"/>
+      <entry name="autofill_postal_address" value="0x90000" summary="autofilled with postal address"/>
+      <entry name="autofill_postal_code" value="0xA0000" summary="autofilled with postal code"/>
+      <entry name="autofill_id" value="0xB0000" summary="autofilled with id"/>
+      <entry name="autofill_name" value="0xC0000" summary="autofilled with name"/>
     </enum>
     <enum name="content_purpose">
       <description summary="content purpose">
