@@ -4,6 +4,12 @@
       <arg name="id" type="new_id" interface="tizen_surface_shm_flusher" summary=""/>
       <arg name="surface" type="object" interface="wl_surface" summary="surface object"/>
     </request>
+
+    <request name="destroy" type="destructor">
+      <description summary="destroy tizen_surface_shm">
+        Destroy tizen_surface_shm.
+      </description>
+    </request>
   </interface>
 
   <interface name="tizen_surface_shm_flusher" version="2">
