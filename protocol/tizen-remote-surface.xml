@@ -36,6 +36,12 @@
         <arg name="surface" type="object" interface="wl_surface" allow-null="true" summary="wayland surface to be set remote surface"/>
         <arg name="remote_surface" type="object" interface="tizen_remote_surface" summary="remote surface for target wayland surface"/>
      </request>
+
+     <request name="destroy" type="destructor">
+       <description summary="destroy tizen_remote_surface_manager">
+         Destroy tizen_remote_surface_manager.
+       </description>
+     </request>
   </interface>
 
   <interface name="tizen_remote_surface_provider" version="4">
