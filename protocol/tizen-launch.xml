@@ -13,6 +13,12 @@
     <request name="type_unset">
       <arg name="pid" type="uint" />
     </request>
+
+    <request name="destroy" type="destructor">
+      <description summary="destroy tizen_launch_effect">
+        Destroy tizen_launch_effect.
+      </description>
+    </request>
   </interface>
 
   <interface name="tizen_launch_splash" version="1">
