@@ -255,12 +255,12 @@ pkgconfig_DATA += \
         src/tizen-surface-server.pc \
         src/tizen-surface-client.pc
 protocolinclude_HEADERS += \
-        protocol/tizen-surface-server-protocol.h \
-        protocol/tizen-surface-client-protocol.h
-libtizen_surface_server_la_SOURCES = protocol/tizen-surface-protocol.c
+        protocol/tizen/tizen-surface-server-protocol.h \
+        protocol/tizen/tizen-surface-client-protocol.h
+libtizen_surface_server_la_SOURCES = protocol/tizen/tizen-surface-protocol.c
 libtizen_surface_server_la_CFLAGS  = @WAYLAND_SERVER_CFLAGS@
 libtizen_surface_server_la_LIBADD  = @WAYLAND_SERVER_LIBS@
-libtizen_surface_client_la_SOURCES = protocol/tizen-surface-protocol.c
+libtizen_surface_client_la_SOURCES = protocol/tizen/tizen-surface-protocol.c
 libtizen_surface_client_la_CFLAGS  = @WAYLAND_CLIENT_CFLAGS@
 libtizen_surface_client_la_LIBADD  = @WAYLAND_CLIENT_LIBS@
 
