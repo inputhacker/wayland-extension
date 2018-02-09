@@ -43,22 +43,22 @@ src/%-server.pc : $(top_srcdir)/src/template-server.pc
 src/%-client.pc : $(top_srcdir)/src/template-client.pc
 	$(cp) $< $@ && $(perl) -pi -e 's|template|$*|g' $@
 
-#### xdg-shell (unstable v5)
-#protocol_LTLIBRARIES += \
-#	libxdg-shell-server.la \
-#	libxdg-shell-client.la
-#pkgconfig_DATA += \
-#	src/xdg-shell-server.pc \
-#	src/xdg-shell-client.pc
-#protocolinclude_HEADERS += \
-#	protocol/tizen/xdg-shell-server-protocol.h \
-#	protocol/tizen/xdg-shell-client-protocol.h
-#libxdg_shell_server_la_SOURCES = protocol/tizen/xdg-shell-protocol.c
-#libxdg_shell_server_la_CFLAGS  = @WAYLAND_SERVER_CFLAGS@
-#libxdg_shell_server_la_LIBADD  = @WAYLAND_SERVER_LIBS@
-#libxdg_shell_client_la_SOURCES = protocol/tizen/xdg-shell-protocol.c
-#libxdg_shell_client_la_CFLAGS  = @WAYLAND_CLIENT_CFLAGS@
-#libxdg_shell_client_la_LIBADD  = @WAYLAND_CLIENT_LIBS@
+### xdg-shell (unstable v5)
+protocol_LTLIBRARIES += \
+	libxdg-shell-unstable-v5-server.la \
+	libxdg-shell-unstable-v5-client.la
+pkgconfig_DATA += \
+	src/xdg-shell-unstable-v5-server.pc \
+	src/xdg-shell-unstable-v5-client.pc
+protocolinclude_HEADERS += \
+	protocol/unstable/xdg-shell-unstable-v5-server-protocol.h \
+	protocol/unstable/xdg-shell-unstable-v5-client-protocol.h
+libxdg_shell_unstable_v5_server_la_SOURCES = protocol/unstable/xdg-shell-unstable-v5-protocol.c
+libxdg_shell_unstable_v5_server_la_CFLAGS  = @WAYLAND_SERVER_CFLAGS@
+libxdg_shell_unstable_v5_server_la_LIBADD  = @WAYLAND_SERVER_LIBS@
+libxdg_shell_unstable_v5_client_la_SOURCES = protocol/unstable/xdg-shell-unstable-v5-protocol.c
+libxdg_shell_unstable_v5_client_la_CFLAGS  = @WAYLAND_CLIENT_CFLAGS@
+libxdg_shell_unstable_v5_client_la_LIBADD  = @WAYLAND_CLIENT_LIBS@
 
 ### xdg-shell (unstable v6)
 protocol_LTLIBRARIES += \
