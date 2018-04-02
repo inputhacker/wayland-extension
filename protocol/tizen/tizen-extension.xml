@@ -564,7 +564,7 @@
 
   </interface>
 
-  <interface name="tizen_keyrouter" version="1">
+  <interface name="tizen_keyrouter" version="2">
     <description summary="an interface to set each focus for each key">
       In tradition, all the keys in a keyboard and a device on which
       some keys are attached will be sent to focus surface by default.
@@ -704,7 +704,11 @@
         Destroy the tizen_keyrouter.
       </description>
     </request>
-
+    <event name="event_surface" since="2">
+      <arg name="surface" type="object" interface="wl_surface"/>
+      <arg name="key" type="uint"/>
+      <arg name="mode" type="uint"/>
+    </event>
   </interface>
 
   <interface name="tizen_screenshooter" version="1">
