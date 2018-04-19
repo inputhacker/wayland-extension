@@ -355,6 +355,11 @@
       <entry name="underline" value="5"/>
       <entry name="selection" value="6"/>
       <entry name="incorrect" value="7"/>
+      <entry name="reverse" value="8" summary="Draw the text in reverse color mode"/>
+      <entry name="bgcolor1" value="9" summary="Draw the text in underline background 1 mode"/>
+      <entry name="bgcolor2" value="10" summary="Draw the text in underline background 2 mode"/>
+      <entry name="bgcolor3" value="11" summary="Draw the text in underline background 3 mode"/>
+      <entry name="bgcolor4" value="12" summary="Draw the text in underline background 4 mode"/>
     </enum>
     <event name="preedit_styling">
       <description summary="pre-edit styling">
