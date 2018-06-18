@@ -111,13 +111,12 @@
       <entry name="autofill_credit_card_expiration_month" value="0x30000" summary="autofilled with credit card expiration month"/>
       <entry name="autofill_credit_card_expiration_year" value="0x40000" summary="autofilled with credit card expiration year"/>
       <entry name="autofill_credit_card_number" value="0x50000" summary="autofilled with credit card number"/>
-      <entry name="autofill_credit_card_security_code" value="0x60000" summary="autofilled with credit card security code"/>
-      <entry name="autofill_email_address" value="0x70000" summary="autofilled with email address"/>
-      <entry name="autofill_phone" value="0x80000" summary="autofilled with phone number"/>
-      <entry name="autofill_postal_address" value="0x90000" summary="autofilled with postal address"/>
-      <entry name="autofill_postal_code" value="0xA0000" summary="autofilled with postal code"/>
-      <entry name="autofill_id" value="0xB0000" summary="autofilled with id"/>
-      <entry name="autofill_name" value="0xC0000" summary="autofilled with name"/>
+      <entry name="autofill_email_address" value="0x60000" summary="autofilled with email address"/>
+      <entry name="autofill_phone" value="0x70000" summary="autofilled with phone number"/>
+      <entry name="autofill_postal_address" value="0x80000" summary="autofilled with postal address"/>
+      <entry name="autofill_postal_code" value="0x90000" summary="autofilled with postal code"/>
+      <entry name="autofill_id" value="0xA0000" summary="autofilled with id"/>
+      <entry name="autofill_name" value="0xB0000" summary="autofilled with name"/>
     </enum>
     <enum name="content_purpose">
       <description summary="content purpose">
