@@ -1,5 +1,5 @@
 Name:		wayland-extension
-Version:	1.2.2
+Version:	1.2.3
 Release:	0
 Summary:	Wayland extenstion protocols that add functionality not available in the Wayland core protocol
 License:	MIT
