@@ -19,7 +19,7 @@
     </event>
   </interface>
 
-  <interface name="tizen_policy" version="7">
+  <interface name="tizen_policy" version="8">
     <request name="get_visibility">
       <arg name="id" type="new_id" interface="tizen_visibility" summary="new visibility object"/>
       <arg name="surface" type="object" interface="wl_surface" summary="surface object"/>
@@ -347,6 +347,11 @@
       <arg name="has" type="uint"/>
     </request>
 
+    <request name="get_move_resize" since="8">
+      <arg name="id" type="new_id" interface="tizen_move_resize" summary="new move_resize object"/>
+      <arg name="surface" type="object" interface="wl_surface" summary="surface object"/>
+    </request>
+
   </interface>
 
   <interface name="tizen_visibility" version="5">
@@ -384,6 +389,16 @@
       <arg name="x" type="int"/>
       <arg name="y" type="int"/>
     </event>
+
+  <interface name="tizen_move_resize" version="1">
+    <request name="destroy" type="destructor"/>
+
+    <request name="set">
+      <arg name="x" type="int"/>
+      <arg name="y" type="int"/>
+      <arg name="w" type="int"/>
+      <arg name="h" type="int"/>
+    </request>
   </interface>
 
   <interface name="tizen_gesture" version="2">
