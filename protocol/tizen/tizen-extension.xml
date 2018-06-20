@@ -389,6 +389,7 @@
       <arg name="x" type="int"/>
       <arg name="y" type="int"/>
     </event>
+  </interface>
 
   <interface name="tizen_move_resize" version="1">
     <request name="destroy" type="destructor"/>
