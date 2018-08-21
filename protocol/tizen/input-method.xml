@@ -246,6 +246,11 @@
     <request name="update_candidate_state">
       <arg name="state" type="uint"/>
     </request>
+    <request name="reshow_input_panel">
+      <description summary="reshow_input_panel">
+        This is a request to send show event after IME is restarted.
+      </description>
+    </request>
     <event name="reset">
     </event>
     <event name="content_type">
