@@ -7,7 +7,7 @@ m4_define([wayland_extension_version],
           [wayland_extension_major_version.wayland_extension_minor_version.wayland_extension_micro_version])
 
 m4_define([wayland_protocols_major_version], [1])
-m4_define([wayland_protocols_minor_version], [12])
+m4_define([wayland_protocols_minor_version], [16])
 m4_define([wayland_protocols_version],
           [wayland_protocols_major_version.wayland_protocols_minor_version])
 

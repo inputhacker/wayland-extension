@@ -287,6 +287,7 @@ unstable_protocols = \
 	protocol/unstable/fullscreen-shell/fullscreen-shell-unstable-v1.xml \
 	protocol/unstable/linux-dmabuf/linux-dmabuf-unstable-v1.xml \
 	protocol/unstable/text-input/text-input-unstable-v1.xml \
+	protocol/unstable/text-input/text-input-unstable-v3.xml \
 	protocol/unstable/input-method/input-method-unstable-v1.xml \
 	protocol/unstable/xdg-shell/xdg-shell-unstable-v5.xml \
 	protocol/unstable/xdg-shell/xdg-shell-unstable-v6.xml \
@@ -301,6 +302,7 @@ unstable_protocols = \
 	protocol/unstable/keyboard-shortcuts-inhibit/keyboard-shortcuts-inhibit-unstable-v1.xml \
 	protocol/unstable/xdg-output/xdg-output-unstable-v1.xml \
 	protocol/unstable/input-timestamps/input-timestamps-unstable-v1.xml \
+	protocol/unstable/xdg-decoration/xdg-decoration-unstable-v1.xml \
 	$(NULL)
 
 stable_protocols = \
