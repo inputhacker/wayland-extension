@@ -1,3 +1,6 @@
+# to build examples
+%define enable_examples 0
+
 Name:		wayland-extension
 Version:	1.2.5
 Release:	0
@@ -12,6 +15,19 @@ BuildRequires:	libtool >= 2.2
 BuildRequires:	pkgconfig
 BuildRequires:  pkgconfig(wayland-server)
 BuildRequires:  pkgconfig(wayland-client)
+
+# requires to build examples
+%if "%{enable_examples}" == "1"
+BuildRequires:  pkgconfig(evas)
+BuildRequires:  pkgconfig(ecore)
+BuildRequires:  pkgconfig(ecore-wl2)
+BuildRequires:  pkgconfig(elementary)
+BuildRequires:  pkgconfig(libtbm)
+BuildRequires:  pkgconfig(wayland-tbm-client)
+# NB: It causes a circular dependency, however we have no choice
+#     but to use the elm to build examples.
+BuildRequires:  wayland-extension-client-devel
+%endif
 
 %description
 wayland-extension contains Wayland protocols that add functionality not available in the Wayland core protocol.
@@ -69,7 +85,12 @@ cp %{SOURCE1001} .
 
 %build
 export CFLAGS+=" -Wall -Werror"
-%reconfigure --disable-static
+%if "%{enable_examples}" == "1"
+   export CFLAGS+=" -DEFL_BETA_API_SUPPORT "
+   %reconfigure --disable-static --enable-build-examples
+%else
+   %reconfigure --disable-static
+%endif
 make %{?_smp_mflags}
 
 %install
@@ -85,6 +106,9 @@ make %{?_smp_mflags}
 %license COPYING
 %defattr(-,root,root)
 %_libdir/*-client.so.0*
+%if "%{enable_examples}" == "1"
+%{_bindir}/*
+%endif
 
 %files -n libwayland-extension-server
 %manifest %{name}.manifest

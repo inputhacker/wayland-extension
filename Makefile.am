@@ -329,3 +329,33 @@ TESTS = $(unstable_protocols) $(stable_protocols)
 TEST_EXTENSIONS = .xml
 AM_TESTS_ENVIRONMENT = SCANNER='$(wayland_scanner)'; export SCANNER;
 XML_LOG_COMPILER = $(srcdir)/tests/scan.sh
+
+
+if BUILD_EXAMPLES
+AM_CPPFLAGS += \
+   -I$(top_srcdir)/protocol/tizen \
+   @WL_TBM_CFLAGS@ \
+   @ECORE_WL2_CFLAGS@ \
+   @ELEMENTARY_CFLAGS@
+
+bin_PROGRAMS = \
+   tzrs-provider \
+   tzrs-consumer
+
+tzrs_provider_SOURCES = src/examples/tzrs-provider.c
+tzrs_provider_CFLAGS = $(AM_CFALGS)
+tzrs_provider_LDADD = \
+   $(top_builddir)/libtizen-extension-client.la \
+   $(top_builddir)/libtizen-remote-surface-client.la \
+   @ECORE_WL2_LIBS@ \
+   @ELEMENTARY_LIBS@
+
+tzrs_consumer_SOURCES = src/examples/tzrs-consumer.c
+tzrs_consumer_CFLAGS = $(AM_CFALGS)
+tzrs_consumer_LDADD = \
+   $(top_builddir)/libtizen-extension-client.la \
+   $(top_builddir)/libtizen-remote-surface-client.la \
+   @WL_TBM_LIBS@ \
+   @ECORE_WL2_LIBS@ \
+   @ELEMENTARY_LIBS@
+endif

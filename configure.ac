@@ -62,6 +62,31 @@ AC_SUBST(WAYLAND_CLIENT_LIBS)
 
 PKG_CHECK_MODULES(WAYLAND_SCANNER, wayland-scanner >= 1.7.0)
 
+AC_ARG_ENABLE([build-examples],
+   [AS_HELP_STRING([--enable-build-examples], [build examples. @<:@default=disabled@:>@])],
+   [
+    if test "x${enableval}" = "xyes" ; then
+       want_build_examples="yes"
+    else
+       want_build_examples="no"
+    fi
+   ],
+   [want_build_examples="no"])
+
+AM_CONDITIONAL([BUILD_EXAMPLES], [test "${want_build_examples}" = "yes"])
+
+AC_MSG_CHECKING([whether to build examples for wayland-extension])
+AC_MSG_RESULT([${want_build_examples}])
+
+if test "${want_build_examples}" = "yes"; then
+   PKG_CHECK_MODULES([TBM], [libtbm])
+   PKG_CHECK_MODULES([WL_TBM], [wayland-tbm-client])
+   PKG_CHECK_MODULES([EVAS], [evas])
+   PKG_CHECK_MODULES([ECORE], [ecore])
+   PKG_CHECK_MODULES([ECORE_WL2], [ecore-wl2])
+   PKG_CHECK_MODULES([ELEMENTARY], [elementary])
+fi
+
 AC_CONFIG_FILES([
 	Makefile
 	src/wayland-extension-version.h
