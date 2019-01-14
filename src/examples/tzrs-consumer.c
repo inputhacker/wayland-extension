@@ -13,6 +13,9 @@ static Evas_Object                         *win        = NULL;
 static Evas_Object                         *img_tbm    = NULL;
 static Evas_Object                         *img_file   = NULL;
 
+static void _buff_tbm_release(void);
+static void _buff_img_file_release(void);
+
 static void
 _ev_cb_mouse_down(void *data EINA_UNUSED,
                   Evas *e EINA_UNUSED,
@@ -214,10 +217,11 @@ static void
 _tzrs_cb_missing(void *data EINA_UNUSED,
                  struct tizen_remote_surface *tzrs)
 {
-   printf("[CONSUMER] Provider is gone\n");
+   printf("[CONSUMER] Provider is gone. Remove image object.\n");
 
-   /* TODO: delete image object for dead provider */
-   ;
+   /* delete image object for dead provider */
+   _buff_img_file_release();
+   _buff_tbm_release();
 }
 
 static void
