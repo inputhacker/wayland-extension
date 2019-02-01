@@ -68,7 +68,7 @@ wayland-protocols contains Wayland upstream protocols that add functionality not
 cp %{SOURCE1001} .
 
 %build
-export CFLAGS+=" -Wall -Werror"
+export CFLAGS+=" -Wall -Werror -Wno-unused-command-line-argument"
 %reconfigure --disable-static
 make %{?_smp_mflags}
 
