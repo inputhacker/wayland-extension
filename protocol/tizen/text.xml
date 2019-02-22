@@ -248,6 +248,7 @@
       <arg name="dev_name" type="string"/>
       <arg name="dev_class" type="uint"/>
       <arg name="dev_subclass" type="uint"/>
+      <arg name="keycode" type="uint"/>
     </request>
     <request name="get_hide_permission">
       <description summary="get permission to hide input panel">

@@ -303,6 +303,7 @@
       <arg name="dev_name" type="string"/>
       <arg name="dev_class" type="uint"/>
       <arg name="dev_subclass" type="uint"/>
+      <arg name="keycode" type="uint"/>
     </event>
     <event name="capital_mode">
       <arg name="mode" type="uint"/>
