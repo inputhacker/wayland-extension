@@ -378,7 +378,7 @@ _tzrs_init(uint32_t res_id,
    struct wl_display *wl_dpy;
    Eina_Iterator *itr;
    Ecore_Wl2_Global *global;
-   int ver = 5;
+   int ver = 6;
    struct wl_tbm *wl_tbm;
 
    wl2_win = (Ecore_Wl2_Window *)elm_win_wl_window_get(win);
@@ -413,12 +413,31 @@ _tzrs_init(uint32_t res_id,
    tbm_client = wayland_tbm_client_init(wl_dpy);
    wl_tbm = wayland_tbm_client_get_wl_tbm(tbm_client);
 
-   /* create tizen remote surface for showing buffer of provider winodw */
-   tzrs =
-     tizen_remote_surface_manager_create_surface(tzrs_mng, res_id, wl_tbm);
+   /* Create tizen remote surface for showing buffer of provider winodw
+    *
+    * Since TIZEN_REMOTE_SURFACE_MANAGER_CREATE_SURFACE_WITH_WL_SURFACE_SINCE_VERSION,
+    * client can request create tizen remote surface with its wl_surfacea(will
+    * contain tizen remote surface) to tizen remote surface manager.
+    */
+   if (ver >= TIZEN_REMOTE_SURFACE_MANAGER_CREATE_SURFACE_WITH_WL_SURFACE_SINCE_VERSION)
+     tzrs =
+        tizen_remote_surface_manager_create_surface_with_wl_surface(tzrs_mng,
+                                                                    res_id,
+                                                                    wl_tbm,
+                                                                    surface);
+   else
+     tzrs =
+        tizen_remote_surface_manager_create_surface(tzrs_mng, res_id, wl_tbm);
 
    tizen_remote_surface_add_listener(tzrs, &_tzrs_listener, NULL);
-   tizen_remote_surface_set_owner(tzrs, surface);
+
+   /* Inform server what wl_surface is container oftizen remote surface.
+    *
+    * Since TIZEN_REMOTE_SURFACE_MANAGER_CREATE_SURFACE_WITH_WL_SURFACE_SINCE_VERSION,
+    * client can inform it through new request(tizen_remote_surface_manager_create_surface_with_wl_surface)
+    */
+   if (ver < TIZEN_REMOTE_SURFACE_MANAGER_CREATE_SURFACE_WITH_WL_SURFACE_SINCE_VERSION)
+     tizen_remote_surface_set_owner(tzrs, surface);
 
    /* start redirection of provider's buffer update */
    tizen_remote_surface_redirect(tzrs);

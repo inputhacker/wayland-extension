@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <protocol name="tizen_remote_surface">
-  <interface name="tizen_remote_surface_manager" version="5">
+  <interface name="tizen_remote_surface_manager" version="6">
      <description summary="manager of tizen_remote_surface">
         A manager of tizen_remote_surface. This object is in charge of
         creating tizen_remote_surface_provider and tizen_remote_surface and
@@ -42,6 +42,21 @@
          Destroy tizen_remote_surface_manager.
        </description>
      </request>
+
+     <!-- version 6 additions -->
+     <request name="create_surface_with_wl_surface" since="6">
+       <description summary="create new remote surface">
+         Ask manager creation of a new remote surface.
+         resource_id is required to identify this remote surface is what provider of
+         and wl_tbm object is used for remote buffer of this remote surface.
+         wayland_surface explicitly specifies one wl_surface object to contain this remote surface.
+       </description>
+       <arg name="id" type="new_id" interface="tizen_remote_surface" summary="new remote surface id" />
+       <arg name="resource_id" type="uint" summary="provider's resource id"/>
+       <arg name="tbm" type="object" interface="wl_tbm" summary="wl_tbm object used to get tbm_surface"/>
+       <arg name="wayland_surface" type="object" interface="wl_surface" summary="wl_surface to contain this new remote surface"/>
+     </request>
+
   </interface>
 
   <interface name="tizen_remote_surface_provider" version="4">
