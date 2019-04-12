@@ -2,7 +2,7 @@
 %define enable_examples 0
 
 Name:		wayland-extension
-Version:	1.2.7
+Version:	1.2.8
 Release:	0
 Summary:	Wayland extenstion protocols that add functionality not available in the Wayland core protocol
 License:	MIT
