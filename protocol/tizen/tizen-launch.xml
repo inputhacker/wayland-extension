@@ -59,4 +59,54 @@
 
   </interface>
 
+  <interface name="tizen_launch_appinfo" version="1">
+    <description summary="application information">
+      This interface allow to set the information of the application.
+    </description>
+
+    <request name="destroy" type="destructor">
+      <description summary="destroy tizen_launch_appinfo">
+        Destroy tizen_launch_appinfo.
+      </description>
+    </request>
+
+    <request name="register_pid">
+      <description summary="Register the pid of the application">
+        Request the registration of the pid to the server.
+      </description>
+      <arg name="pid" type="uint" />
+    </request>
+
+    <request name="deregister_pid">
+      <description summary="Deregister the pid of the application">
+        Request the deregistration of the pid to the server
+      </description>
+      <arg name="pid" type="uint" />
+    </request>
+
+    <request name="set_appid">
+      <description summary="Set the appid">
+        Set the appid associated with the pid.
+      </description>
+      <arg name="pid" type="uint" />
+      <arg name="appid" type="string" />
+    </request>
+
+    <request name="get_base_output_resolution">
+      <description summary="Get the base_output_resolution">
+        Request to get the base_output_resolution associated with the pid.
+       </description>
+      <arg name="pid" type="uint" />
+    </request>
+
+    <event name="base_output_resolution_done">
+      <description summary="Get the base_output_resolution">
+        Get the base_output_resolution of the pid.
+        The client can use the base_output_resolution as the resolution of the display outputs.
+      </description>
+      <arg name="pid" type="uint" />
+      <arg name="width" type="uint" />
+      <arg name="height" type="uint" />
+    </event>
+  </interface>
 </protocol>
