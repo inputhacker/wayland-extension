@@ -281,6 +281,23 @@ libtizen_surface_client_la_SOURCES = protocol/tizen/tizen-surface-protocol.c
 libtizen_surface_client_la_CFLAGS  = @WAYLAND_CLIENT_CFLAGS@
 libtizen_surface_client_la_LIBADD  = @WAYLAND_CLIENT_LIBS@
 
+### tizen-dpms
+protocol_LTLIBRARIES += \
+        libtizen-dpms-server.la \
+        libtizen-dpms-client.la
+pkgconfig_DATA += \
+        src/tizen-dpms-server.pc \
+        src/tizen-dpms-client.pc
+protocolinclude_HEADERS += \
+        protocol/tizen/tizen-dpms-server-protocol.h \
+        protocol/tizen/tizen-dpms-client-protocol.h
+libtizen_dpms_server_la_SOURCES = protocol/tizen/tizen-dpms-protocol.c
+libtizen_dpms_server_la_CFLAGS  = @WAYLAND_SERVER_CFLAGS@
+libtizen_dpms_server_la_LIBADD  = @WAYLAND_SERVER_LIBS@
+libtizen_dpms_client_la_SOURCES = protocol/tizen/tizen-dpms-protocol.c
+libtizen_dpms_client_la_CFLAGS  = @WAYLAND_CLIENT_CFLAGS@
+libtizen_dpms_client_la_LIBADD  = @WAYLAND_CLIENT_LIBS@
+
 ### wayland-protocols
 unstable_protocols = \
 	protocol/unstable/pointer-gestures/pointer-gestures-unstable-v1.xml \

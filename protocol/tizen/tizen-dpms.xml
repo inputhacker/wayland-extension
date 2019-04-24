@@ -1,0 +1,43 @@
+<protocol name="tizen_dpms">
+  <interface name="tizen_dpms_manager" version="1">
+    <description summary="manager of tizen_dpms">
+      A manager of tizen_dpms. This object provides interface to setting and
+      getting dpms.
+    </description>
+
+    <enum name="error">
+      <entry name="none" value="0" summary="no error"/>
+      <entry name="invalid_permission" value="1" summary="Permission deny"/>
+      <entry name="invalid_parameter" value="2" summary="Given parameter is invalid"/>
+      <entry name="not_supported" value="3" summary="Given service is not supported."/>
+      <entry name="already_done" value="4" summary="Given request is already done."/>
+    </enum>
+
+    <enum name="mode" summary="available dpms modes">
+      <entry name="on" value="0" summary="DPMS ON"/>
+      <entry name="standby" value="1" summary="DPMS STANDBY"/>
+      <entry name="suspend" value="2" summary="DPMS SUSPEND"/>
+      <entry name="off" value="3" summary="DPMS OFF"/>
+    </enum>
+
+    <request name="destroy" type="destructor">
+      <description summary="destroy the tizen_dpms_manager">
+        Destroy the tizen_dpms_manager.
+      </description>
+    </request>
+
+    <request name="set_dpms">
+      <arg name="output" type="object" interface="wl_output" summary="output object for dpms"/>
+      <arg name="mode" type="uint" summary="dpms mode"/>
+    </request>
+
+    <request name="get_dpms">
+      <arg name="output" type="object" interface="wl_output" summary="output object for dpms"/>
+    </request>
+
+    <event name="state">
+      <arg name="mode" type="uint"/>
+      <arg name="error" type="uint"/>
+    </event>
+  </interface>
+</protocol>
